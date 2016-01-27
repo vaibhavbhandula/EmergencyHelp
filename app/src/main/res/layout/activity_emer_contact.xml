@@ -2,23 +2,23 @@
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/activity_vertical_margin">
+    android:layout_margin="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_margin="@dimen/activity_vertical_margin">
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Police Station:"
+            android:layout_alignParentLeft="true"
             android:paddingTop="@dimen/activity_horizontal_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_alignParentLeft="true" />
+            android:text="Police Station:"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
@@ -31,14 +31,14 @@
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/fbutton_default_padding_top"
+                android:text="100"
                 fbutton:buttonColor="@color/colorAccent"
+                fbutton:cornerRadius="5dp"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp"
-                android:text="100"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:layout_alignParentRight="true"/>
+                fbutton:shadowHeight="5dp" />
 
         </com.andexert.library.RippleView>
 
@@ -47,7 +47,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_vertical_margin" >
+        android:layout_margin="@dimen/activity_vertical_margin">
 
         <TextView
             android:id="@+id/textView2"
@@ -69,14 +69,14 @@
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/fbutton_default_padding_top"
+                android:text="101"
                 fbutton:buttonColor="@color/colorAccent"
+                fbutton:cornerRadius="5dp"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp"
-                android:text="101"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:layout_alignParentRight="true"/>
+                fbutton:shadowHeight="5dp" />
 
         </com.andexert.library.RippleView>
     </RelativeLayout>
@@ -84,16 +84,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_horizontal_margin" >
+        android:layout_margin="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ambulance:"
+            android:layout_alignParentLeft="true"
             android:paddingTop="@dimen/activity_horizontal_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_alignParentLeft="true" />
+            android:text="Ambulance:"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
@@ -106,14 +106,14 @@
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/fbutton_default_padding_top"
+                android:text="102"
                 fbutton:buttonColor="@color/colorAccent"
+                fbutton:cornerRadius="5dp"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp"
-                android:text="102"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:layout_alignParentRight="true"/>
+                fbutton:shadowHeight="5dp" />
 
         </com.andexert.library.RippleView>
 
@@ -123,16 +123,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_horizontal_margin" >
+        android:layout_margin="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Women Help Line:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_alignParentLeft="true"
-            android:paddingTop="@dimen/activity_horizontal_margin"/>
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:text="Women Help Line:"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
@@ -145,14 +145,14 @@
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/fbutton_default_padding_top"
+                android:text="1091"
                 fbutton:buttonColor="@color/colorAccent"
+                fbutton:cornerRadius="5dp"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp"
-                android:text="1091"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:layout_alignParentRight="true"/>
+                fbutton:shadowHeight="5dp" />
 
         </com.andexert.library.RippleView>
     </RelativeLayout>
