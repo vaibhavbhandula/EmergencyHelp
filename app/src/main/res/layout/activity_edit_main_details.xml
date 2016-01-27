@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="20dp">
+      <TextView
+        	android:text="@string/home_address"
+        	android:layout_height="wrap_content"
+        	android:layout_width="wrap_content"
+        	android:layout_gravity="left"/>
+            
+             
+        
+    	
+    	<EditText 
+        	android:id="@+id/home_address_field"
+        	android:singleLine="true"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:hint="Enter Your Address"
+        	android:textColor="@android:color/white"
+        	android:layout_marginBottom="20dp"/>
+    	<TextView
+    	    android:text="@string/home_phone"
+    	    android:layout_height="wrap_content"
+    	    android:layout_width="wrap_content"
+    	    android:layout_gravity="left"
+    	    android:textSize="12sp"/>
+           
+    	
+        <EditText 
+            android:id="@+id/home_phone_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColor="@android:color/white"
+            android:hint="@string/enter_home_phone"/>
+
+    <com.andexert.library.RippleView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        >
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/button1"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fbutton:buttonColor="@color/colorAccent"
+            fbutton:shadowColor="@color/fbutton_color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:text="Update"
+            android:layout_marginTop="@dimen/fbutton_default_padding_top"
+            />
+
+    </com.andexert.library.RippleView>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Note : Leave blank if not to be updated"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>
+</LinearLayout>

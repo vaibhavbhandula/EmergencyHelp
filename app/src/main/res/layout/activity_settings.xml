@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+
+        <com.andexert.library.RippleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="60dp">
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/button1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/fbutton_default_padding_top"
+                android:text="Edit Main Details"
+                fbutton:buttonColor="@color/colorAccent"
+                fbutton:cornerRadius="5dp"
+                fbutton:shadowColor="@color/fbutton_color_asbestos"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp" />
+
+        </com.andexert.library.RippleView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+
+        <com.andexert.library.RippleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="40dp">
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/button2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/fbutton_default_padding_top"
+                android:text="Edit Emergency Details"
+                fbutton:buttonColor="@color/colorAccent"
+                fbutton:cornerRadius="5dp"
+                fbutton:shadowColor="@color/fbutton_color_asbestos"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp" />
+
+        </com.andexert.library.RippleView>
+
+
+    </LinearLayout>
+</LinearLayout>

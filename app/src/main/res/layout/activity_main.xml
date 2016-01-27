@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <TextView
+			android:text="@string/name"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_gravity="left"/>
+            
+        </LinearLayout>       
+    	<EditText
+			android:id="@+id/home_name_field"
+			android:singleLine="true"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textColor="@android:color/black"
+			android:hint="Enter Your Name"/>
+    	
+    	
+    	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <TextView
+        	android:text="@string/home_address"
+        	android:layout_height="wrap_content"
+        	android:layout_width="wrap_content"
+        	android:layout_gravity="left"/>
+            
+             
+        </LinearLayout>
+    	
+    	<EditText 
+        	android:id="@+id/home_address_field"
+        	android:singleLine="true"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:textColor="@android:color/black"
+        	android:hint="Enter Your Address"/>
+    	
+    	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <TextView
+    	    android:text="@string/home_phone"
+    	    android:layout_height="wrap_content"
+    	    android:layout_width="wrap_content"
+    	    android:layout_gravity="left"
+    	    android:textSize="12sp"/>
+            
+            
+        </LinearLayout>
+    	
+        <EditText 
+            android:id="@+id/home_phone_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColor="@android:color/black"
+            android:hint="@string/enter_home_phone"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <TextView
+    	    android:text="@string/blood_type"
+    	    android:layout_height="wrap_content"
+    	    android:layout_width="wrap_content"
+    	    android:layout_gravity="left"/>
+            
+            
+        </LinearLayout>
+        
+        <Spinner
+                android:id="@+id/blood_type_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/blood_array"
+                android:prompt="@string/select_blood" />
+      
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <TextView
+            android:text="@string/emergency_contact"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"/>
+            
+             
+        </LinearLayout>
+        
+        <EditText
+            android:id="@+id/Emergency_contacts_name"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Enter Emergency Contact Name"
+            android:textColor="@android:color/black"
+            android:textSize="19sp"/>
+            
+            <TextView
+            android:text="@string/emergency_number"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"/>
+        
+        <EditText
+            android:id="@+id/Emergency_contacts_number1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="phone"
+            android:textColor="@android:color/black"
+            android:hint="@string/enter_em_number"
+            android:textSize="19sp"/>
+            <TextView
+            android:text="@string/emergency_contact"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"/>
+            
+             
+        
+        
+        <EditText
+            android:id="@+id/Emergency_contacts_name2"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Enter Emergency Contact Name"
+            android:textColor="@android:color/black"
+            android:textSize="19sp"/>
+        
+            <TextView
+            android:text="@string/emergency_number"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"/>
+        <EditText
+            android:id="@+id/Emergency_contacts_number2"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/black"
+            android:inputType="phone"
+            android:hint="@string/enter_em_number"
+            android:textSize="19sp"/>
+
+        <com.andexert.library.RippleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
+
+         <info.hoang8f.widget.FButton
+             android:id="@+id/save_button"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             fbutton:buttonColor="@color/colorAccent"
+             fbutton:shadowColor="@color/fbutton_color_asbestos"
+             fbutton:shadowEnabled="true"
+             fbutton:shadowHeight="5dp"
+             fbutton:cornerRadius="5dp"
+             android:text="@string/save"/>
+        </com.andexert.library.RippleView>
+
+        <com.andexert.library.RippleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            >
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fbutton:buttonColor="@color/colorAccent"
+            fbutton:shadowColor="@color/fbutton_color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:text="@string/cancel"
+            android:layout_marginTop="@dimen/fbutton_default_padding_top"/>
+
+        </com.andexert.library.RippleView>
+    </LinearLayout>
+    
+
+</ScrollView>
