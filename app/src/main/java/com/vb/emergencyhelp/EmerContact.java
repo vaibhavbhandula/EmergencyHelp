@@ -33,27 +33,8 @@ public class EmerContact extends AppCompatActivity implements View.OnClickListen
     public void onBackPressed() {
         // TODO Auto-generated method stub
         super.onBackPressed();
-        this.finish();
-        startActivity(new Intent(EmerContact.this, Home.class));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.emer_contact, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.home:
-                this.finish();
-                startActivity(new Intent(EmerContact.this, Home.class));
-                return true;
-        }
-        return true;
-    }
 
     @Override
     public void onClick(View v) {

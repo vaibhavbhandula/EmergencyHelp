@@ -24,7 +24,7 @@
             android:layout_marginBottom="20dp"
             android:hint="Enter Emergency Contact Name 1"
             android:singleLine="true"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
             android:layout_marginBottom="10dp"
             android:hint="@string/enter_em_number"
             android:inputType="phone"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="19sp" />
 
         <TextView
@@ -56,7 +56,7 @@
             android:layout_marginBottom="20dp"
             android:hint="Enter Emergency Contact Name 2"
             android:singleLine="true"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_em_number"
             android:inputType="phone"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="19sp" />
 
 

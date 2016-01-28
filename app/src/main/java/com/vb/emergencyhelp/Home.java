@@ -70,26 +70,9 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
     @Override
     public void onBackPressed() {
-        this.finish();
+        super.onBackPressed();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                this.finish();
-                startActivity(new Intent(Home.this, Settings.class));
-                return true;
-        }
-        return true;
-    }
 
     public void locSett() {
         final WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
@@ -113,7 +96,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
                         public void onClick(DialogInterface dialog, int which) {
                             // TODO Auto-generated method stub
                             /*Intent intent = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
-							startActivity(intent);*/
+                            startActivity(intent);*/
                             provider = "network";
                             wifiManager.setWifiEnabled(true);
                         }
@@ -244,7 +227,6 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
         } else if (v.getId() == R.id.imageButton4) {
-            this.finish();
             startActivity(new Intent(Home.this, EmerContact.class));
         } else if (v.getId() == R.id.imageButton5) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
@@ -256,7 +238,6 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
             String msg2 = "Hey " + d.getEname2() + " I'm in trouble. Please come here! location " + s + "";
             smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
         } else if (v.getId() == R.id.imageButton6) {
-            this.finish();
             startActivity(new Intent(Home.this, Settings.class));
 
         }

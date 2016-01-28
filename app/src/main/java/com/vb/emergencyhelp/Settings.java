@@ -24,39 +24,19 @@ public class Settings extends AppCompatActivity implements OnClickListener {
         b2.setOnClickListener(this);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.settings, menu);
-        return true;
-    }
 
     @Override
     public void onBackPressed() {
-        this.finish();
-        startActivity(new Intent(this, Home.class));
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.home:
-                this.finish();
-                startActivity(new Intent(Settings.this, Home.class));
-                return true;
-        }
-        return true;
+        super.onBackPressed();
     }
 
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
         if (v.getId() == R.id.button1) {
-            this.finish();
             startActivity(new Intent(Settings.this, EditMainDetails.class));
 
         } else if (v.getId() == R.id.button2) {
-            this.finish();
             startActivity(new Intent(Settings.this, EditEmergencyDetails.class));
 
         }

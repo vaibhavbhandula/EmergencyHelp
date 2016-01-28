@@ -35,38 +35,16 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
         d = new Details();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.edit_emergencey_details, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.home:
-                this.finish();
-                startActivity(new Intent(EditEmergencyDetails.this, Home.class));
-                return true;
-        }
-        return true;
-    }
 
     @Override
     public void onBackPressed() {
-        this.finish();
-        startActivity(new Intent(this, Settings.class));
+        super.onBackPressed();
     }
 
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
         d = dh.getDetails();
-        et1.setTextColor(Color.WHITE);
-        et2.setTextColor(Color.WHITE);
-        et3.setTextColor(Color.WHITE);
-        et4.setTextColor(Color.WHITE);
         String s1 = et1.getText().toString();
         String s2 = et2.getText().toString();
         String s3 = et4.getText().toString();
@@ -111,17 +89,16 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
                 dh.editEmer(nm, ph, s3, s4);
             }
             /*Toast.makeText(this, "Updated", Toast.LENGTH_LONG).show();
-			this.finish();
+            this.finish();
 			startActivity(new Intent(EditEmergenceyDetails.this,Home.class));*/
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-            alertDialog.setTitle("Edit Emergency Details");
+            alertDialog.setTitle("Emergency Details");
             alertDialog.setMessage("Updated");
             alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     // TODO Auto-generated method stub
-                    startActivity(new Intent(EditEmergencyDetails.this, Home.class));
                     onBackPressed();
                 }
             });
