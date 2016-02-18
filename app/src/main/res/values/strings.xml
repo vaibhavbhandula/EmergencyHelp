@@ -79,6 +79,7 @@
     <string name="call_101">101</string>
     <string name="call_102">102</string>
     <string name="call_1091">1091</string>
+    <string name="but_edit_main">Edit Main Details</string>
     <string-array name="blood_array">
         <item>Blood Type</item>
         <item>A-</item>

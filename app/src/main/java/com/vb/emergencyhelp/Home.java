@@ -36,7 +36,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
     String provider = "";
     String locationString = "";
 
-    CardView hospital,police,fire,emergency,sos,settings;
+    CardView hospital, police, fire, emergency, sos, settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +51,17 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
         setContentView(R.layout.activity_home);
 
-        hospital=(CardView)findViewById(R.id.hospital);
+        hospital = (CardView) findViewById(R.id.hospital);
         hospital.setOnClickListener(this);
-        police=(CardView)findViewById(R.id.police);
+        police = (CardView) findViewById(R.id.police);
         police.setOnClickListener(this);
-        fire=(CardView)findViewById(R.id.fire);
+        fire = (CardView) findViewById(R.id.fire);
         fire.setOnClickListener(this);
-        emergency=(CardView)findViewById(R.id.emergency);
+        emergency = (CardView) findViewById(R.id.emergency);
         emergency.setOnClickListener(this);
-        sos=(CardView)findViewById(R.id.sos);
+        sos = (CardView) findViewById(R.id.sos);
         sos.setOnClickListener(this);
-        settings=(CardView)findViewById(R.id.settings);
+        settings = (CardView) findViewById(R.id.settings);
         settings.setOnClickListener(this);
 
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -107,7 +107,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-							/*Intent intent = new Intent (android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS);
+                            /*Intent intent = new Intent (android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS);
 							startActivity(intent);*/
 
                             try {
@@ -223,10 +223,10 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
             Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse("tel:" + d.getEno1()));
             startActivity(callIntent);
-            String msg1 = getString(R.string.hey) +" "+ d.getEname1() + " "+ getString(R.string.trouble) +" "+ locationString + "";
+            String msg1 = getString(R.string.hey) + " " + d.getEname1() + " " + getString(R.string.trouble) + " " + locationString + "";
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-            String msg2 = getString(R.string.hey) +" "+ d.getEname2() + " "+ getString(R.string.trouble) +" "+ locationString + "";
+            String msg2 = getString(R.string.hey) + " " + d.getEname2() + " " + getString(R.string.trouble) + " " + locationString + "";
             smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
         } else if (v.getId() == R.id.settings) {
             startActivity(new Intent(Home.this, Settings.class));

@@ -9,4 +9,7 @@
     <dimen name="pad_20">20dp</dimen>
     <dimen name="pad_10">10dp</dimen>
     <dimen name="size">19sp</dimen>
+    <dimen name="pad_40">40dp</dimen>
+    <dimen name="pad_60">60dp</dimen>
+    <dimen name="pad_200">200dp</dimen>
 </resources>

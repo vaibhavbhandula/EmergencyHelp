@@ -14,20 +14,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="60dp">
+            android:layout_marginBottom="@dimen/pad_60">
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/button1"
-                android:layout_width="200dp"
+                android:layout_width="@dimen/pad_200"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="Edit Main Details"
+                android:text="@string/but_edit_main"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
     </LinearLayout>
@@ -42,20 +42,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="@dimen/pad_40">
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/button2"
-                android:layout_width="200dp"
+                android:layout_width="@dimen/pad_200"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="Edit Emergency Details"
+                android:text="@string/title_activity_edit_emergencey_details"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
 

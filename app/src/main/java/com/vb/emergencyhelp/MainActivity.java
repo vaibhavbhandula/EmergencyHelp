@@ -14,27 +14,27 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
-    EditText et1, et2, et3, et4, et5, et6, et7;
-    Spinner sp;
-    Button b1, b2;
+    EditText name, add, phone, emName1, emNumber1, emNumber2, emName2;
+    Spinner blood;
+    Button save, cancel;
     DatabaseHelper dh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        et1 = (EditText) findViewById(R.id.home_name_field);
-        et2 = (EditText) findViewById(R.id.home_address_field);
-        et3 = (EditText) findViewById(R.id.home_phone_field);
-        et4 = (EditText) findViewById(R.id.Emergency_contacts_name);
-        et5 = (EditText) findViewById(R.id.Emergency_contacts_number1);
-        et6 = (EditText) findViewById(R.id.Emergency_contacts_number2);
-        et7 = (EditText) findViewById(R.id.Emergency_contacts_name2);
-        sp = (Spinner) findViewById(R.id.blood_type_spinner);
-        b1 = (Button) findViewById(R.id.save_button);
-        b2 = (Button) findViewById(R.id.cancel_button);
-        b1.setOnClickListener(this);
-        b2.setOnClickListener(this);
+        name = (EditText) findViewById(R.id.home_name_field);
+        add = (EditText) findViewById(R.id.home_address_field);
+        phone = (EditText) findViewById(R.id.home_phone_field);
+        emName1 = (EditText) findViewById(R.id.Emergency_contacts_name);
+        emNumber1 = (EditText) findViewById(R.id.Emergency_contacts_number1);
+        emNumber2 = (EditText) findViewById(R.id.Emergency_contacts_number2);
+        emName2 = (EditText) findViewById(R.id.Emergency_contacts_name2);
+        blood = (Spinner) findViewById(R.id.blood_type_spinner);
+        save = (Button) findViewById(R.id.save_button);
+        cancel = (Button) findViewById(R.id.cancel_button);
+        save.setOnClickListener(this);
+        cancel.setOnClickListener(this);
         dh = new DatabaseHelper(this);
     }
 
@@ -54,38 +54,38 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     public void onClick(View v) {
 
         if (v.getId() == R.id.save_button) {
-            et1.setTextColor(Color.BLACK);
-            et2.setTextColor(Color.BLACK);
-            et3.setTextColor(Color.BLACK);
-            et4.setTextColor(Color.BLACK);
-            et5.setTextColor(Color.BLACK);
-            et6.setTextColor(Color.BLACK);
-            et7.setTextColor(Color.BLACK);
-            if (et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty() || et3.getText().toString().isEmpty() || et4.getText().toString().isEmpty() || et5.getText().toString().isEmpty() || et6.getText().toString().isEmpty() || sp.getSelectedItemPosition() == 0) {
-                Toast.makeText(getBaseContext(), "Please fill all the details", 50).show();
-            } else if (et3.getText().toString().length() < 10 || et3.getText().toString().length() > 10) {
-                Toast.makeText(this, "Phone number should be of 10 digits", 50).show();
+            name.setTextColor(Color.BLACK);
+            add.setTextColor(Color.BLACK);
+            phone.setTextColor(Color.BLACK);
+            emName1.setTextColor(Color.BLACK);
+            emNumber1.setTextColor(Color.BLACK);
+            emNumber2.setTextColor(Color.BLACK);
+            emName2.setTextColor(Color.BLACK);
+            if (name.getText().toString().isEmpty() || add.getText().toString().isEmpty() || phone.getText().toString().isEmpty() || emName1.getText().toString().isEmpty() || emNumber1.getText().toString().isEmpty() || emNumber2.getText().toString().isEmpty() || emName2.getText().toString().isEmpty() || blood.getSelectedItemPosition() == 0) {
+                Toast.makeText(getBaseContext(), getString(R.string.fill), Toast.LENGTH_LONG).show();
+            } else if (phone.getText().toString().length() < 10 || phone.getText().toString().length() > 10) {
+                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
 
-                et3.setTextColor(Color.RED);
-                et3.requestFocus();
-            } else if (et5.getText().toString().length() < 10 || et5.getText().toString().length() > 10) {
-                Toast.makeText(this, "Phone number should be of 10 digits", 50).show();
-                et5.setTextColor(Color.RED);
-                et5.requestFocus();
-            } else if (et6.getText().toString().length() < 10 || et6.getText().toString().length() > 10) {
-                Toast.makeText(this, "Phone number should be of 10 digits", 50).show();
-                et6.setTextColor(Color.RED);
-                et6.requestFocus();
+                phone.setTextColor(Color.RED);
+                phone.requestFocus();
+            } else if (emNumber1.getText().toString().length() < 10 || emNumber1.getText().toString().length() > 10) {
+                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
+                emNumber1.setTextColor(Color.RED);
+                emNumber1.requestFocus();
+            } else if (emNumber2.getText().toString().length() < 10 || emNumber2.getText().toString().length() > 10) {
+                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
+                emNumber2.setTextColor(Color.RED);
+                emNumber2.requestFocus();
             } else {
-                int i = sp.getSelectedItemPosition();
-                String s = (String) sp.getItemAtPosition(i);
-                String nm = et1.getText().toString();
-                String add = et2.getText().toString();
-                String phn = et3.getText().toString();
-                String enm1 = et4.getText().toString();
-                String eno1 = et5.getText().toString();
-                String eno2 = et6.getText().toString();
-                String enm2 = et7.getText().toString();
+                int i = blood.getSelectedItemPosition();
+                String s = (String) blood.getItemAtPosition(i);
+                String nm = name.getText().toString();
+                String add = this.add.getText().toString();
+                String phn = phone.getText().toString();
+                String enm1 = emName1.getText().toString();
+                String eno1 = emNumber1.getText().toString();
+                String eno2 = emNumber2.getText().toString();
+                String enm2 = emName2.getText().toString();
 
                 dh.addDetails(new Details(nm, add, phn, s, enm1, eno1, enm2, eno2));
                 Intent in = new Intent(this, Home.class);
