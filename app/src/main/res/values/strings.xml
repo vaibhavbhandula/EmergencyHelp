@@ -3,12 +3,13 @@
 
     <string name="menu_settings">Settings</string>
     <string name="sos">SOS</string>
-    <string name="police">Police</string>
+    <string name="police">Police Station</string>
     <string name="emergency_Contact">Emergency \nContact</string>
     <string name="home">Home</string>
     <string name="hospital">Hospital</string>
     <string name="blood_Bank">Blood Bank</string>
     <string name="ambulance">Ambulance</string>
+    <string name="emergency">Emergency Nos</string>
     <string name="settings">Settings</string>
     <string name="update">Update Contact \nInformation</string>
     <string name="update_User">Update User \nInformation</string>
@@ -53,6 +54,23 @@
     <string name="format_blood">Format: A+ A- B+ B- AB+ AB- O+ O-</string>
     <string name="select_blood">Blood Type</string>
 
+    <string name="first_resp">First-Responder</string>
+    <string name="ad_msg">Your network and gps providers are off. Please enable one of them.</string>
+    <string name="network_msg">Please choose between Wi-Fi and Mobile Data</string>
+    <string name="hey">Hey</string>
+    <string name="trouble">I\'m in trouble. Please come here! location </string>
+    <string name="url">https://www.google.co.in/maps/dir/</string>
+    <string name="nearest_hospital">/nearest+hospital</string>
+    <string name="nearest_police">/nearest+police+station</string>
+    <string name="nearest_fire">/nearest+fire+station</string>
+    <string name="fill">Please fill all the details</string>
+    <string name="phn">Phone number should be of 10 digits</string>
+    <string name="emer_details">Emergency Details</string>
+    <string name="updated">Updated</string>
+
+    <string name="hint_ct1">Enter Emergency Contact Name 1</string>
+    <string name="hint_ct2">Enter Emergency Contact Name 2</string>
+    <string name="note">Note : Leave blank if both contacts are not be changed. </string>
     <string-array name="blood_array">
         <item>Blood Type</item>
         <item>A-</item>

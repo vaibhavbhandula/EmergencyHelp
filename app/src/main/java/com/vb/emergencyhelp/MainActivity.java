@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
 
         if (v.getId() == R.id.save_button) {
             et1.setTextColor(Color.BLACK);

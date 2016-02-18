@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.view.Menu;
@@ -30,11 +31,12 @@ import android.widget.ImageButton;
 
 
 public class Home extends AppCompatActivity implements OnClickListener, LocationListener {
-    ImageButton i1, i2, i3, i4, i5, i6;
     DatabaseHelper dh;
     Details d;
     String provider = "";
-    String s = "";
+    String locationString = "";
+
+    CardView hospital,police,fire,emergency,sos,settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +50,20 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         }
 
         setContentView(R.layout.activity_home);
-        i1 = (ImageButton) findViewById(R.id.imageButton1);
-        i2 = (ImageButton) findViewById(R.id.imageButton2);
-        i3 = (ImageButton) findViewById(R.id.imageButton3);
-        i4 = (ImageButton) findViewById(R.id.imageButton4);
-        i5 = (ImageButton) findViewById(R.id.imageButton5);
-        i6 = (ImageButton) findViewById(R.id.imageButton6);
-        i1.setOnClickListener(this);
-        i2.setOnClickListener(this);
-        i3.setOnClickListener(this);
-        i4.setOnClickListener(this);
-        i5.setOnClickListener(this);
-        i6.setOnClickListener(this);
+
+        hospital=(CardView)findViewById(R.id.hospital);
+        hospital.setOnClickListener(this);
+        police=(CardView)findViewById(R.id.police);
+        police.setOnClickListener(this);
+        fire=(CardView)findViewById(R.id.fire);
+        fire.setOnClickListener(this);
+        emergency=(CardView)findViewById(R.id.emergency);
+        emergency.setOnClickListener(this);
+        sos=(CardView)findViewById(R.id.sos);
+        sos.setOnClickListener(this);
+        settings=(CardView)findViewById(R.id.settings);
+        settings.setOnClickListener(this);
+
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location l = manager.getLastKnownLocation("network");
         if (l != null) {
@@ -80,21 +84,19 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (telephonyManager.getDataState() == 0 && wifiManager.isWifiEnabled() == false && manager.isProviderEnabled(LocationManager.GPS_PROVIDER) == false) {
             AlertDialog.Builder ad = new AlertDialog.Builder(this);
-            ad.setTitle("First-Responder");
-            ad.setMessage("Your network and gps providers are off. Please enable one of them.");
+            ad.setTitle(getString(R.string.first_resp));
+            ad.setMessage(getString(R.string.ad_msg));
             ad.setPositiveButton("Network", new DialogInterface.OnClickListener() {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // TODO Auto-generated method stub
                     AlertDialog.Builder network = new AlertDialog.Builder(Home.this);
-                    network.setTitle("First-Responder");
-                    network.setMessage("Please choose between Wi-Fi and Mobile Data");
+                    network.setTitle(getString(R.string.first_resp));
+                    network.setMessage(getString(R.string.network_msg));
                     network.setPositiveButton("Wi-Fi", new DialogInterface.OnClickListener() {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
                             /*Intent intent = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
                             startActivity(intent);*/
                             provider = "network";
@@ -105,7 +107,6 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
 							/*Intent intent = new Intent (android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS);
 							startActivity(intent);*/
 
@@ -113,22 +114,16 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
                                 setMobileDataEnabled(getBaseContext(), true);
                                 provider = "network";
                             } catch (IllegalArgumentException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                             } catch (ClassNotFoundException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                             } catch (NoSuchFieldException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                             } catch (IllegalAccessException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                             } catch (NoSuchMethodException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                             } catch (InvocationTargetException e) {
-                                // TODO Auto-generated catch block
                                 e.printStackTrace();
                             }
                         }
@@ -140,7 +135,6 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // TODO Auto-generated method stub
                     Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                     startActivity(intent);
                     provider = "gps";
@@ -185,11 +179,8 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         d = dh.getDetails();
 
 
-        // TODO Auto-generated method stub
-        if (v.getId() == R.id.imageButton1) {
-
-            //startActivity(new Intent(this,Maps.class));
-			/*Intent callIntent = new Intent(Intent.ACTION_CALL);
+        if (v.getId() == R.id.hospital) {
+            /*Intent callIntent = new Intent(Intent.ACTION_CALL);
 		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
 		    startActivity(callIntent);
 		    String msg1="Hey "+d.getEname1()+" I'm in trouble. Please come to Hospital near location "+s+"";
@@ -197,11 +188,11 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 		    smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
 		    String msg2="Hey "+d.getEname2()+" I'm in trouble. Please come to Hospital near location "+s+"";
 		    smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);*/
-            String s1 = String.format(Locale.ENGLISH, "https://www.google.co.in/maps/dir/" + s + "/nearest+hospital");
+            String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_hospital));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
             //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
-        } else if (v.getId() == R.id.imageButton2) {
+        } else if (v.getId() == R.id.police) {
 			/*Intent callIntent = new Intent(Intent.ACTION_CALL);
 		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
 		    startActivity(callIntent);
@@ -210,11 +201,11 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 		    smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
 		    String msg2="Hey "+d.getEname2()+" I'm in trouble. Please come to Police Station! near location "+s+"";
 		    smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);*/
-            String s1 = String.format(Locale.ENGLISH, "https://www.google.co.in/maps/dir/" + s + "/nearest+police+station");
+            String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_police));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
 
-        } else if (v.getId() == R.id.imageButton3) {
+        } else if (v.getId() == R.id.fire) {
 			/*Intent callIntent = new Intent(Intent.ACTION_CALL);
 		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
 		    startActivity(callIntent);
@@ -223,21 +214,21 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 		    smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
 		    String msg2="Hey "+d.getEname2()+" I'm in trouble. it's Fire ! Please come here! location "+s+"";
 		    smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null); */
-            String s1 = String.format(Locale.ENGLISH, "https://www.google.co.in/maps/dir/" + s + "/nearest+fire+station");
+            String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_fire));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
-        } else if (v.getId() == R.id.imageButton4) {
+        } else if (v.getId() == R.id.emergency) {
             startActivity(new Intent(Home.this, EmerContact.class));
-        } else if (v.getId() == R.id.imageButton5) {
+        } else if (v.getId() == R.id.sos) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse("tel:" + d.getEno1()));
             startActivity(callIntent);
-            String msg1 = "Hey " + d.getEname1() + " I'm in trouble. Please come here! location " + s + "";
+            String msg1 = getString(R.string.hey) +" "+ d.getEname1() + " "+ getString(R.string.trouble) +" "+ locationString + "";
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-            String msg2 = "Hey " + d.getEname2() + " I'm in trouble. Please come here! location " + s + "";
+            String msg2 = getString(R.string.hey) +" "+ d.getEname2() + " "+ getString(R.string.trouble) +" "+ locationString + "";
             smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
-        } else if (v.getId() == R.id.imageButton6) {
+        } else if (v.getId() == R.id.settings) {
             startActivity(new Intent(Home.this, Settings.class));
 
         }
@@ -246,28 +237,24 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
     @Override
     public void onLocationChanged(Location location) {
-        // TODO Auto-generated method stub
         double lat = (double) (location.getLatitude());
         double lng = (double) (location.getLongitude());
-        s = lat + "," + lng;
+        locationString = lat + "," + lng;
 
     }
 
     @Override
     public void onProviderDisabled(String arg0) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void onProviderEnabled(String arg0) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
-        // TODO Auto-generated method stub
 
     }
 }

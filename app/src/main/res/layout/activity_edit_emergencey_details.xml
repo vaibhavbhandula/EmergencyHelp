@@ -6,9 +6,9 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/pad_20"
+        android:layout_marginRight="@dimen/pad_20"
+        android:layout_marginTop="@dimen/pad_20"
         android:orientation="vertical">
 
         <TextView
@@ -21,8 +21,8 @@
             android:id="@+id/Emergency_contacts_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Enter Emergency Contact Name 1"
+            android:layout_marginBottom="@dimen/pad_20"
+            android:hint="@string/hint_ct1"
             android:singleLine="true"
             android:textColor="@android:color/black" />
 
@@ -36,11 +36,11 @@
             android:id="@+id/Emergency_contacts_number1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/pad_10"
             android:hint="@string/enter_em_number"
             android:inputType="phone"
             android:textColor="@android:color/black"
-            android:textSize="19sp" />
+            android:textSize="@dimen/size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,8 +53,8 @@
             android:id="@+id/Emergency_contacts_name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:hint="Enter Emergency Contact Name 2"
+            android:layout_marginBottom="@dimen/pad_20"
+            android:hint="@string/hint_ct2"
             android:singleLine="true"
             android:textColor="@android:color/black" />
 
@@ -71,18 +71,18 @@
             android:hint="@string/enter_em_number"
             android:inputType="phone"
             android:textColor="@android:color/black"
-            android:textSize="19sp" />
+            android:textSize="@dimen/size" />
 
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/pad_20"
             android:gravity="center">
 
             <info.hoang8f.widget.FButton
-                android:id="@+id/button1"
+                android:id="@+id/update"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,10 +90,10 @@
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
                 android:text="Update"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
 
@@ -101,8 +101,8 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Note : Leave blank if both contacts are not be changed. "
+            android:layout_marginTop="@dimen/pad_10"
+            android:text="@string/note"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </LinearLayout>

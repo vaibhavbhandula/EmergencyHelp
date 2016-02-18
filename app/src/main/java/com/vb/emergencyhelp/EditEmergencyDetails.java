@@ -1,13 +1,10 @@
 package com.vb.emergencyhelp;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -16,8 +13,8 @@ import android.widget.Toast;
 
 public class EditEmergencyDetails extends AppCompatActivity implements OnClickListener {
 
-    EditText et1, et2, et3, et4;
-    Button b;
+    EditText name1, number1, number2, name2;
+    Button ok;
     DatabaseHelper dh;
     Details d;
 
@@ -25,12 +22,12 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_emergencey_details);
-        et1 = (EditText) findViewById(R.id.Emergency_contacts_name);
-        et2 = (EditText) findViewById(R.id.Emergency_contacts_number1);
-        et3 = (EditText) findViewById(R.id.Emergency_contacts_number2);
-        et4 = (EditText) findViewById(R.id.Emergency_contacts_name2);
-        b = (Button) findViewById(R.id.button1);
-        b.setOnClickListener(this);
+        name1 = (EditText) findViewById(R.id.Emergency_contacts_name);
+        number1 = (EditText) findViewById(R.id.Emergency_contacts_number1);
+        number2 = (EditText) findViewById(R.id.Emergency_contacts_number2);
+        name2 = (EditText) findViewById(R.id.Emergency_contacts_name2);
+        ok = (Button) findViewById(R.id.button1);
+        ok.setOnClickListener(this);
         dh = new DatabaseHelper(this);
         d = new Details();
     }
@@ -43,15 +40,13 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
 
     @Override
     public void onClick(View v) {
-        // TODO Auto-generated method stub
         d = dh.getDetails();
-        String s1 = et1.getText().toString();
-        String s2 = et2.getText().toString();
-        String s3 = et4.getText().toString();
-        String s4 = et3.getText().toString();
+        String s1 = name1.getText().toString();
+        String s2 = number1.getText().toString();
+        String s3 = name2.getText().toString();
+        String s4 = number2.getText().toString();
         int z = 0;
         int x = 0;
-        // TODO Auto-generated method stub
 
         if (s1.isEmpty() || s2.isEmpty()) {
             z = 1;
@@ -59,22 +54,22 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
         if (s3.isEmpty() || s4.isEmpty() && z != 1) {
             z = 2;
         }
-        if ((et1.getText().toString().isEmpty() || et2.getText().toString().isEmpty()) && (et3.getText().toString().isEmpty() || et4.getText().toString().isEmpty())) {
+        if ((name1.getText().toString().isEmpty() || number1.getText().toString().isEmpty()) && (number2.getText().toString().isEmpty() || name2.getText().toString().isEmpty())) {
 
-            Toast.makeText(getBaseContext(), "Please fill all the details", 50).show();
+            Toast.makeText(getBaseContext(), getString(R.string.fill), Toast.LENGTH_LONG).show();
 
-        } else if (!s2.isEmpty() && (et2.getText().toString().length() < 10 || et2.getText().toString().length() > 10)) {
+        } else if (!s2.isEmpty() && (number1.getText().toString().length() < 10 || number1.getText().toString().length() > 10)) {
 
-            Toast.makeText(this, "Phone number should be of 10 digits", 50).show();
+            Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
 
-            et2.setTextColor(Color.RED);
-            et2.requestFocus();
+            number1.setTextColor(Color.RED);
+            number1.requestFocus();
 
-        } else if (!s4.isEmpty() && (et3.getText().toString().length() < 10 || et3.getText().toString().length() > 10)) {
-            Toast.makeText(this, "Phone number should be of 10 digits", 50).show();
+        } else if (!s4.isEmpty() && (number2.getText().toString().length() < 10 || number2.getText().toString().length() > 10)) {
+            Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
 
-            et3.setTextColor(Color.RED);
-            et2.requestFocus();
+            number2.setTextColor(Color.RED);
+            number2.requestFocus();
 
         } else {
             if (z == 0) {
@@ -92,13 +87,12 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
             this.finish();
 			startActivity(new Intent(EditEmergenceyDetails.this,Home.class));*/
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-            alertDialog.setTitle("Emergency Details");
-            alertDialog.setMessage("Updated");
+            alertDialog.setTitle(getString(R.string.emer_details));
+            alertDialog.setMessage(getString(R.string.updated));
             alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // TODO Auto-generated method stub
                     onBackPressed();
                 }
             });
