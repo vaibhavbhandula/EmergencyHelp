@@ -71,6 +71,14 @@
     <string name="hint_ct1">Enter Emergency Contact Name 1</string>
     <string name="hint_ct2">Enter Emergency Contact Name 2</string>
     <string name="note">Note : Leave blank if both contacts are not be changed. </string>
+    <string name="note_main">Note : Leave blank if not to be updated</string>
+    <string name="hint_add">Enter Your Address</string>
+    <string name="but_update">Update</string>
+    <string name="women">Women Help Line</string>
+    <string name="call_100">100</string>
+    <string name="call_101">101</string>
+    <string name="call_102">102</string>
+    <string name="call_1091">1091</string>
     <string-array name="blood_array">
         <item>Blood Type</item>
         <item>A-</item>

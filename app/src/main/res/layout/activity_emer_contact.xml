@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_vertical_margin"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="@dimen/pad_20">
 
         <TextView
             android:id="@+id/textView1"
@@ -17,28 +17,26 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:paddingTop="@dimen/activity_horizontal_margin"
-            android:text="Police Station:"
+            android:text="@string/police"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            >
+            android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
-                android:id="@+id/button1"
+                android:id="@+id/police"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="100"
+                android:text="@string/call_100"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
 
@@ -55,28 +53,26 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:paddingTop="@dimen/activity_horizontal_margin"
-            android:text="Fire Station:"
+            android:text="@string/fire_station"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            >
+            android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
-                android:id="@+id/button2"
+                android:id="@+id/fire"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="101"
+                android:text="@string/call_101"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
     </RelativeLayout>
@@ -92,28 +88,26 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:paddingTop="@dimen/activity_horizontal_margin"
-            android:text="Ambulance:"
+            android:text="@string/ambulance"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            >
+            android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
-                android:id="@+id/button3"
+                android:id="@+id/ambulance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="102"
+                android:text="@string/call_102"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
 
@@ -131,28 +125,26 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:paddingTop="@dimen/activity_horizontal_margin"
-            android:text="Women Help Line:"
+            android:text="@string/women"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            >
+            android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
-                android:id="@+id/button4"
+                android:id="@+id/women"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="1091"
+                android:text="@string/call_1091"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
     </RelativeLayout>

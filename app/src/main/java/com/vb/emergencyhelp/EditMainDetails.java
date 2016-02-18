@@ -24,7 +24,7 @@ public class EditMainDetails extends AppCompatActivity implements OnClickListene
         setContentView(R.layout.activity_edit_main_details);
         add = (EditText) findViewById(R.id.home_address_field);
         phn = (EditText) findViewById(R.id.home_phone_field);
-        ok = (Button) findViewById(R.id.button1);
+        ok = (Button) findViewById(R.id.update);
         ok.setOnClickListener(this);
         dh = new DatabaseHelper(this);
         d = new Details();

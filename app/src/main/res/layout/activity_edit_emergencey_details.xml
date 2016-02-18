@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="Update"
+                android:text="@string/but_update"
                 fbutton:buttonColor="@color/colorAccent"
                 fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"

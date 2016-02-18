@@ -26,7 +26,7 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
         number1 = (EditText) findViewById(R.id.Emergency_contacts_number1);
         number2 = (EditText) findViewById(R.id.Emergency_contacts_number2);
         name2 = (EditText) findViewById(R.id.Emergency_contacts_name2);
-        ok = (Button) findViewById(R.id.button1);
+        ok = (Button) findViewById(R.id.update);
         ok.setOnClickListener(this);
         dh = new DatabaseHelper(this);
         d = new Details();

@@ -6,9 +6,9 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/pad_20"
+        android:layout_marginRight="@dimen/pad_20"
+        android:layout_marginTop="@dimen/pad_20"
         android:orientation="vertical">
 
         <TextView
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="Enter Your Address"
+            android:hint="@string/hint_add"
             android:singleLine="true"
             android:textColor="@android:color/black" />
 
@@ -31,8 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="@string/home_phone"
-            android:textSize="12sp" />
+            android:text="@string/home_phone" />
 
 
         <EditText
@@ -47,21 +46,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/pad_20"
             android:gravity="center">
 
             <info.hoang8f.widget.FButton
-                android:id="@+id/button1"
+                android:id="@+id/update"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="Update"
+                android:text="@string/but_update"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
 
@@ -69,8 +68,9 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Note : Leave blank if not to be updated"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/pad_10"
+            android:text="@string/note_main"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </LinearLayout>
