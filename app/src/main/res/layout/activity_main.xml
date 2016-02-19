@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-
     android:padding="@dimen/activity_horizontal_margin">
 
     <LinearLayout
@@ -12,76 +11,45 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/name" />
-
-        </LinearLayout>
-
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/home_name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Your Name"
-            android:singleLine="true"
-            android:textColor="@android:color/black" />
+            android:hint="@string/name"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_primaryColor="@color/colorAccent" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/home_address" />
-
-
-        </LinearLayout>
-
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/home_address_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Your Address"
-            android:singleLine="true"
-            android:textColor="@android:color/black" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/home_phone"
-                android:textSize="12sp" />
+            android:layout_marginTop="@dimen/pad_10"
+            android:hint="@string/home_address"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_primaryColor="@color/colorAccent" />
 
 
-        </LinearLayout>
-
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/home_phone_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_home_phone"
+            android:layout_marginTop="@dimen/pad_10"
+            android:hint="@string/home_phone"
             android:inputType="phone"
-            android:textColor="@android:color/black" />
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_maxCharacters="10"
+            app:met_primaryColor="@color/colorAccent" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pad_10"
             android:orientation="horizontal">
 
             <TextView
@@ -96,77 +64,73 @@
         <Spinner
             android:id="@+id/blood_type_spinner"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="@dimen/spinner_ht"
             android:drawSelectorOnTop="true"
             android:entries="@array/blood_array"
             android:prompt="@string/select_blood" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="@string/emergency_contact" />
-
-
-        </LinearLayout>
-
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/Emergency_contacts_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Emergency Contact Name"
-            android:textColor="@android:color/black"
-            android:textSize="19sp" />
+            android:hint="@string/hint_ct1"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_primaryColor="@color/colorAccent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/emergency_number" />
-
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/Emergency_contacts_number1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_em_number"
+            android:layout_marginTop="@dimen/pad_10"
+            android:hint="@string/emergency_number"
             android:inputType="phone"
-            android:textColor="@android:color/black"
-            android:textSize="19sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/emergency_contact" />
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_maxCharacters="10"
+            app:met_primaryColor="@color/colorAccent" />
 
 
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/Emergency_contacts_name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Emergency Contact Name"
-            android:textColor="@android:color/black"
-            android:textSize="19sp" />
+            android:layout_marginTop="@dimen/pad_10"
+            android:hint="@string/hint_ct2"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_primaryColor="@color/colorAccent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/emergency_number" />
 
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/Emergency_contacts_number2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_em_number"
+            android:layout_marginTop="@dimen/pad_10"
+            android:hint="@string/emergency_number"
             android:inputType="phone"
-            android:textColor="@android:color/black"
-            android:textSize="19sp" />
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_maxCharacters="10"
+            app:met_primaryColor="@color/colorAccent" />
+
+        <com.andexert.library.RippleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/pad_10">
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/save_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                fbutton:buttonColor="@color/colorAccent"
+                fbutton:cornerRadius="@dimen/pad_4"
+                fbutton:shadowColor="@color/fbutton_color_asbestos"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="@dimen/pad_4" />
+        </com.andexert.library.RippleView>
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
@@ -174,35 +138,16 @@
             android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
-                android:id="@+id/save_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/save"
-                fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowColor="@color/fbutton_color_asbestos"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
-        </com.andexert.library.RippleView>
-
-        <com.andexert.library.RippleView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            >
-
-            <info.hoang8f.widget.FButton
                 android:id="@+id/cancel_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
                 android:text="@string/cancel"
                 fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="5dp"
+                fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
+                fbutton:shadowHeight="@dimen/pad_4" />
 
         </com.andexert.library.RippleView>
     </LinearLayout>

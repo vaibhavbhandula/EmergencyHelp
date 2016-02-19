@@ -12,4 +12,5 @@
     <dimen name="pad_40">40dp</dimen>
     <dimen name="pad_60">60dp</dimen>
     <dimen name="pad_200">200dp</dimen>
+    <dimen name="spinner_ht">50sp</dimen>
 </resources>

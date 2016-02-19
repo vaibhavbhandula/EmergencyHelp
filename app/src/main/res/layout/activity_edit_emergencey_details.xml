@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -11,80 +12,64 @@
         android:layout_marginTop="@dimen/pad_20"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/emergency_contact" />
-
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/Emergency_contacts_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/pad_20"
             android:hint="@string/hint_ct1"
-            android:singleLine="true"
-            android:textColor="@android:color/black" />
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_primaryColor="@color/colorAccent"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/emergency_number" />
-
-        <EditText
-            android:id="@+id/Emergency_contacts_number1"
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_marginTop="@dimen/pad_10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/pad_10"
-            android:hint="@string/enter_em_number"
+            android:id="@+id/Emergency_contacts_number1"
+            android:hint="@string/emergency_number"
             android:inputType="phone"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/size" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/emergency_contact" />
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_maxCharacters="10"
+            app:met_primaryColor="@color/colorAccent"
+            />
 
 
-        <EditText
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/Emergency_contacts_name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/pad_20"
             android:hint="@string/hint_ct2"
-            android:singleLine="true"
-            android:textColor="@android:color/black" />
+            android:layout_marginTop="@dimen/pad_10"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_primaryColor="@color/colorAccent"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/emergency_number" />
 
-        <EditText
-            android:id="@+id/Emergency_contacts_number2"
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_em_number"
+            android:id="@+id/Emergency_contacts_number2"
+            android:hint="@string/emergency_number"
             android:inputType="phone"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/size" />
+            android:layout_marginTop="@dimen/pad_10"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
+            app:met_maxCharacters="10"
+            app:met_primaryColor="@color/colorAccent"
+            />
 
 
         <com.andexert.library.RippleView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/pad_20"
+            android:layout_marginTop="@dimen/pad_10"
             android:gravity="center">
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/update"
-
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
