@@ -12,22 +12,19 @@ import java.util.Locale;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
+
+import com.alertdialogpro.AlertDialogPro;
 
 
 public class Home extends AppCompatActivity implements OnClickListener, LocationListener {
@@ -83,15 +80,17 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (telephonyManager.getDataState() == 0 && wifiManager.isWifiEnabled() == false && manager.isProviderEnabled(LocationManager.GPS_PROVIDER) == false) {
-            AlertDialog.Builder ad = new AlertDialog.Builder(this);
+            AlertDialogPro.Builder ad = new AlertDialogPro.Builder(this);
+            ad.setIcon(R.drawable.ic_launcher);
             ad.setTitle(getString(R.string.first_resp));
             ad.setMessage(getString(R.string.ad_msg));
             ad.setPositiveButton("Network", new DialogInterface.OnClickListener() {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    AlertDialog.Builder network = new AlertDialog.Builder(Home.this);
-                    network.setTitle(getString(R.string.first_resp));
+                    AlertDialogPro.Builder network = new AlertDialogPro.Builder(Home.this);
+                    network.setIcon(R.drawable.ic_launcher);
+                    network.setTitle("Network");
                     network.setMessage(getString(R.string.network_msg));
                     network.setPositiveButton("Wi-Fi", new DialogInterface.OnClickListener() {
 
@@ -138,8 +137,6 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
                     Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                     startActivity(intent);
                     provider = "gps";
-
-
                 }
             });
             ad.show();
@@ -240,7 +237,6 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         double lat = (double) (location.getLatitude());
         double lng = (double) (location.getLongitude());
         locationString = lat + "," + lng;
-
     }
 
     @Override

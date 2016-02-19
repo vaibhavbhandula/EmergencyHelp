@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimaryDark">#D32F2F</color>
     <color name="colorPrimary">#F44336</color>
-    <color name="colorAccent">#00BCD4</color>
+    <color name="colorAccent">#0099ff</color>
     <color name="fbutton_color_turquoise">#1abc9c</color>
     <color name="fbutton_color_green_sea">#16a085</color>
     <color name="fbutton_color_emerald">#2ecc71</color>

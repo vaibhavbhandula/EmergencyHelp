@@ -6,6 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="alertDialogProTheme">@style/FlavoredMaterialLight</item>
     </style>
 
+    <style name="Button" parent="Widget.AlertDialogPro.Material.Light.Button">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="FlavoredMaterialLight" parent="Theme.AlertDialogPro.Material.Light">
+        <item name="adpButtonBarPositiveButtonStyle">@style/Button</item>
+        <item name="adpButtonBarNegativeButtonStyle">@style/Button</item>
+    </style>
 </resources>

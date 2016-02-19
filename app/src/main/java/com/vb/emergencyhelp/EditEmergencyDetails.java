@@ -1,6 +1,5 @@
 package com.vb.emergencyhelp;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +9,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.alertdialogpro.AlertDialogPro;
 
 public class EditEmergencyDetails extends AppCompatActivity implements OnClickListener {
 
@@ -86,7 +87,8 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
             /*Toast.makeText(this, "Updated", Toast.LENGTH_LONG).show();
             this.finish();
 			startActivity(new Intent(EditEmergenceyDetails.this,Home.class));*/
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+            AlertDialogPro.Builder alertDialog = new AlertDialogPro.Builder(this);
+            alertDialog.setIcon(R.drawable.ic_launcher);
             alertDialog.setTitle(getString(R.string.emer_details));
             alertDialog.setMessage(getString(R.string.updated));
             alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
