@@ -107,7 +107,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             /*Intent intent = new Intent (android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS);
-							startActivity(intent);*/
+                            startActivity(intent);*/
 
                             try {
                                 setMobileDataEnabled(getBaseContext(), true);
@@ -177,40 +177,40 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
 
         if (v.getId() == R.id.hospital) {
-            /*Intent callIntent = new Intent(Intent.ACTION_CALL);
-		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
-		    startActivity(callIntent);
-		    String msg1="Hey "+d.getEname1()+" I'm in trouble. Please come to Hospital near location "+s+"";
-		    SmsManager smsManager = SmsManager.getDefault();
-		    smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-		    String msg2="Hey "+d.getEname2()+" I'm in trouble. Please come to Hospital near location "+s+"";
-		    smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);*/
+//            Intent callIntent = new Intent(Intent.ACTION_CALL);
+//		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
+//		    startActivity(callIntent);
+//            String msg1 = getString(R.string.hey) + " " + d.getEname1() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
+//            String msg2 = getString(R.string.hey) + " " + d.getEname2() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
+//            smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
             String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_hospital));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
             //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
         } else if (v.getId() == R.id.police) {
-			/*Intent callIntent = new Intent(Intent.ACTION_CALL);
-		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
-		    startActivity(callIntent);
-		    String msg1="Hey "+d.getEname1()+" I'm in trouble. Please come to Police Station! near location "+s+"";
-		    SmsManager smsManager = SmsManager.getDefault();
-		    smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-		    String msg2="Hey "+d.getEname2()+" I'm in trouble. Please come to Police Station! near location "+s+"";
-		    smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);*/
+//			Intent callIntent = new Intent(Intent.ACTION_CALL);
+//		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
+//		    startActivity(callIntent);
+//            String msg1 = getString(R.string.hey) + " " + d.getEname1() + " " + getString(R.string.trouble_police) + " " + locationString + "";
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
+//            String msg2 = getString(R.string.hey) + " " + d.getEname2() + " " + getString(R.string.trouble_police) + " " + locationString + "";
+//            smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
             String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_police));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
 
         } else if (v.getId() == R.id.fire) {
-			/*Intent callIntent = new Intent(Intent.ACTION_CALL);
-		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
-		    startActivity(callIntent);
-		    String msg1="Hey "+d.getEname1()+" I'm in trouble. It's Fire ! Please come here! location "+s+"";
-		    SmsManager smsManager = SmsManager.getDefault();
-		    smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-		    String msg2="Hey "+d.getEname2()+" I'm in trouble. it's Fire ! Please come here! location "+s+"";
-		    smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null); */
+//			Intent callIntent = new Intent(Intent.ACTION_CALL);
+//		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
+//		    startActivity(callIntent);
+//            String msg1 = getString(R.string.hey) + " " + d.getEname1() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
+//            String msg2 = getString(R.string.hey) + " " + d.getEname2() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
+//            smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
             String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_fire));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
