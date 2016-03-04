@@ -74,15 +74,15 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
 
         } else {
             if (z == 0) {
-                dh.editEmer(s1, s2, s3, s4);
+                dh.editEmergency(s1, s2, s3, s4);
             } else if (z == 2) {
                 String nm = d.getEname2();
                 String ph = d.getEno2();
-                dh.editEmer(s1, s2, nm, ph);
+                dh.editEmergency(s1, s2, nm, ph);
             } else if (z == 1) {
                 String nm = d.getEname1();
                 String ph = d.getEno1();
-                dh.editEmer(nm, ph, s3, s4);
+                dh.editEmergency(nm, ph, s3, s4);
             }
             /*Toast.makeText(this, "Updated", Toast.LENGTH_LONG).show();
             this.finish();

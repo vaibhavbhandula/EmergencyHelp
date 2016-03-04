@@ -62,7 +62,7 @@ public class EditMainDetails extends AppCompatActivity implements OnClickListene
                 if (z == 0) {
                     dh.editMain(s1, s2);
                 } else if (z == 1) {
-                    String nm = d.getAddr();
+                    String nm = d.getAddress();
                     dh.editMain(nm, s2);
                 } else if (z == 2) {
                     String ph = d.getPhone();

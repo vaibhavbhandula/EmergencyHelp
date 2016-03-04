@@ -13,61 +13,75 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     static int dbVersion = 1;
-    static String dbName = "emerge";
-    String tbName = "help";
-    String keyName = "name";
-    String keyAddr = "addr";
-    String keyPhn = "phone";
-    String keyBlood = "blood";
-    String keyEname1 = "ename1";
-    String keyEname2 = "ename2";
-    String keyEno1 = "eno1";
-    String keyEno2 = "eno2";
+
+    SQLiteDatabase db;
+
+    final static String KEY_DB_NAME = "emerge";
+    final static String KEY_TABLE_NAME = "help";
+    final static String KEY_NAME = "name";
+    final static String KEY_ADDRESS = "address";
+    final static String KEY_PHN = "phone";
+    final static String KEY_BLOOD = "blood";
+    final static String KEY_ENAME_1 = "ename1";
+    final static String KEY_ENAME_2 = "ename2";
+    final static String KEY_ENO_1 = "eno1";
+    final static String KEY_ENO_2 = "eno2";
 
     public DatabaseHelper(Context context) {
-        super(context, dbName, null, dbVersion);
+        super(context, KEY_DB_NAME, null, dbVersion);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table help (name text,addr text,phone long,blood text,ename1 text,eno1 long,ename2 text,eno2 long)");
+
+        db.execSQL("create table  " + KEY_TABLE_NAME + "("
+                + KEY_NAME + " text,"
+                + KEY_ADDRESS + " text,"
+                + KEY_PHN + " long,"
+                + KEY_BLOOD + " text,"
+                + KEY_ENAME_1 + " text,"
+                + KEY_ENO_1 + " long,"
+                + KEY_ENAME_2 + " text,"
+                + KEY_ENO_2 + " long)");
+
+        db.close();
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
-        db.execSQL("DROP TABLE IF EXISTS " + tbName);
+        db.execSQL("DROP TABLE IF EXISTS " + KEY_TABLE_NAME);
 
         // Create tables again
         onCreate(db);
     }
 
     void addDetails(Details d) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(keyName, d.getName());
-        cv.put(keyAddr, d.getAddr());
-        cv.put(keyPhn, d.getPhone());
-        cv.put(keyBlood, d.getBlood());
-        cv.put(keyEname1, d.getEname1());
-        cv.put(keyEno1, d.getEno1());
-        cv.put(keyEname2, d.getEname2());
-        cv.put(keyEno2, d.getEno2());
-        db.insert(tbName, null, cv);
+        cv.put(KEY_NAME, d.getName());
+        cv.put(KEY_ADDRESS, d.getAddress());
+        cv.put(KEY_PHN, d.getPhone());
+        cv.put(KEY_BLOOD, d.getBlood());
+        cv.put(KEY_ENAME_1, d.getEname1());
+        cv.put(KEY_ENO_1, d.getEno1());
+        cv.put(KEY_ENAME_2, d.getEname2());
+        cv.put(KEY_ENO_2, d.getEno2());
+        db.insert(KEY_TABLE_NAME, null, cv);
         db.close();
     }
 
     Details getDetails() {
-        SQLiteDatabase db = this.getReadableDatabase();
+        db = this.getReadableDatabase();
         Details d = new Details();
-        Cursor c = db.query(tbName, new String[]{keyName, keyAddr, keyPhn, keyBlood, keyEname1, keyEno1, keyEname2, keyEno2},
+        Cursor c = db.query(KEY_TABLE_NAME, new String[]{KEY_NAME, KEY_ADDRESS, KEY_PHN, KEY_BLOOD, KEY_ENAME_1, KEY_ENO_1, KEY_ENAME_2, KEY_ENO_2},
                 null, null, null, null, null);
         if (c != null) {
             c.moveToFirst();
         }
         d = new Details();
         d.setName(c.getString(0));
-        d.setAddr(c.getString(1));
+        d.setAddress(c.getString(1));
         d.setPhone(c.getString(2));
         d.setBlood(c.getString(3));
         d.setEname1(c.getString(4));
@@ -75,35 +89,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         d.setEname2(c.getString(6));
         d.setEno2(c.getString(7));
 
+        db.close();
         return d;
 
     }
 
     int check() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery("Select * from " + tbName, null);
+        db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("Select * from " + KEY_TABLE_NAME, null);
+        db.close();
         if (c.moveToFirst())
             return 1;
         else return 0;
     }
 
     void editMain(String s1, String s2) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(keyAddr, s1);
-        cv.put(keyPhn, s2);
-        db.update(tbName, cv, null, null);
+        cv.put(KEY_ADDRESS, s1);
+        cv.put(KEY_PHN, s2);
+        db.update(KEY_TABLE_NAME, cv, null, null);
         db.close();
     }
 
-    void editEmer(String s1, String s2, String s3, String s4) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    void editEmergency(String s1, String s2, String s3, String s4) {
+        db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(keyEname1, s1);
-        cv.put(keyEno1, s2);
-        cv.put(keyEname2, s3);
-        cv.put(keyEno2, s4);
-        db.update(tbName, cv, null, null);
+        cv.put(KEY_ENAME_1, s1);
+        cv.put(KEY_ENO_1, s2);
+        cv.put(KEY_ENAME_2, s3);
+        cv.put(KEY_ENO_2, s4);
+        db.update(KEY_TABLE_NAME, cv, null, null);
         db.close();
     }
 }

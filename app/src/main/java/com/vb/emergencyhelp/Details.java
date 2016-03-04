@@ -4,15 +4,15 @@ package com.vb.emergencyhelp;
  * Created by Vaibhav on 12/11/15.
  */
 public class Details {
-    String name, addr, phone, blood, ename1, ename2, eno1, eno2;
+    String name, address, phone, blood, ename1, ename2, eno1, eno2;
 
     public Details() {
-        name = addr = phone = blood = ename1 = ename2 = eno1 = eno2 = "";
+        name = address = phone = blood = ename1 = ename2 = eno1 = eno2 = "";
     }
 
-    public Details(String name, String addr, String phone, String blood, String ename, String eno1, String ename2, String eno2) {
+    public Details(String name, String address, String phone, String blood, String ename, String eno1, String ename2, String eno2) {
         this.name = name;
-        this.addr = addr;
+        this.address = address;
         this.phone = phone;
         this.blood = blood;
         this.ename1 = ename;
@@ -29,12 +29,12 @@ public class Details {
         return this.name;
     }
 
-    public void setAddr(String s) {
-        this.addr = s;
+    public void setAddress(String s) {
+        this.address = s;
     }
 
-    public String getAddr() {
-        return this.addr;
+    public String getAddress() {
+        return this.address;
     }
 
     public void setPhone(String s) {
