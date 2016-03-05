@@ -16,8 +16,8 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
 
     EditText name1, number1, number2, name2;
     Button ok;
-    DatabaseHelper dh;
-    Details d;
+    DatabaseHelper databaseHelper;
+    Details details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,8 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
         name2 = (EditText) findViewById(R.id.Emergency_contacts_name2);
         ok = (Button) findViewById(R.id.update);
         ok.setOnClickListener(this);
-        dh = new DatabaseHelper(this);
-        d = new Details();
+        databaseHelper = new DatabaseHelper(this);
+        details = new Details();
     }
 
 
@@ -41,13 +41,12 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
 
     @Override
     public void onClick(View v) {
-        d = dh.getDetails();
+        details = databaseHelper.getDetails();
         String s1 = name1.getText().toString();
         String s2 = number1.getText().toString();
         String s3 = name2.getText().toString();
         String s4 = number2.getText().toString();
         int z = 0;
-        int x = 0;
 
         if (s1.isEmpty() || s2.isEmpty()) {
             z = 1;
@@ -74,15 +73,15 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
 
         } else {
             if (z == 0) {
-                dh.editEmergency(s1, s2, s3, s4);
+                databaseHelper.editEmergency(s1, s2, s3, s4);
             } else if (z == 2) {
-                String nm = d.getEname2();
-                String ph = d.getEno2();
-                dh.editEmergency(s1, s2, nm, ph);
+                String nm = details.getEname2();
+                String ph = details.getEno2();
+                databaseHelper.editEmergency(s1, s2, nm, ph);
             } else if (z == 1) {
-                String nm = d.getEname1();
-                String ph = d.getEno1();
-                dh.editEmergency(nm, ph, s3, s4);
+                String nm = details.getEname1();
+                String ph = details.getEno1();
+                databaseHelper.editEmergency(nm, ph, s3, s4);
             }
             /*Toast.makeText(this, "Updated", Toast.LENGTH_LONG).show();
             this.finish();

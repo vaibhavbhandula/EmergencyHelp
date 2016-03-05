@@ -14,21 +14,21 @@ import com.alertdialogpro.AlertDialogPro;
 
 public class EditMainDetails extends AppCompatActivity implements OnClickListener {
 
-    EditText add, phn;
+    EditText address, phone;
     Button ok;
-    DatabaseHelper dh;
-    Details d;
+    DatabaseHelper databaseHelper;
+    Details details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_main_details);
-        add = (EditText) findViewById(R.id.home_address_field);
-        phn = (EditText) findViewById(R.id.home_phone_field);
+        address = (EditText) findViewById(R.id.home_address_field);
+        phone = (EditText) findViewById(R.id.home_phone_field);
         ok = (Button) findViewById(R.id.update);
         ok.setOnClickListener(this);
-        dh = new DatabaseHelper(this);
-        d = new Details();
+        databaseHelper = new DatabaseHelper(this);
+        details = new Details();
     }
 
 
@@ -40,38 +40,38 @@ public class EditMainDetails extends AppCompatActivity implements OnClickListene
 
     @Override
     public void onClick(View v) {
-        d = dh.getDetails();
-        String s1 = add.getText().toString();
-        String s2 = phn.getText().toString();
+        details = databaseHelper.getDetails();
+        String s1 = address.getText().toString();
+        String s2 = phone.getText().toString();
         int z = 0;
-        if (add.getText().toString().isEmpty() && phn.getText().toString().isEmpty()) {
+        if (address.getText().toString().isEmpty() && phone.getText().toString().isEmpty()) {
             Toast.makeText(getBaseContext(), getString(R.string.fill), Toast.LENGTH_LONG).show();
-            add.requestFocus();
+            address.requestFocus();
         } else {
             if (s1.isEmpty()) {
                 z = 1;
             } else if (s2.isEmpty()) {
                 z = 2;
             }
-            if ((phn.getText().toString().length() < 10 || phn.getText().toString().length() > 10) && z != 2) {
+            if ((phone.getText().toString().length() < 10 || phone.getText().toString().length() > 10) && z != 2) {
                 Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
 
-                phn.setTextColor(Color.RED);
-                phn.requestFocus();
+                phone.setTextColor(Color.RED);
+                phone.requestFocus();
             } else {
                 if (z == 0) {
-                    dh.editMain(s1, s2);
+                    databaseHelper.editMain(s1, s2);
                 } else if (z == 1) {
-                    String nm = d.getAddress();
-                    dh.editMain(nm, s2);
+                    String nm = details.getAddress();
+                    databaseHelper.editMain(nm, s2);
                 } else if (z == 2) {
-                    String ph = d.getPhone();
-                    dh.editMain(s1, ph);
+                    String ph = details.getPhone();
+                    databaseHelper.editMain(s1, ph);
                 }
                 //Toast.makeText(this, "Updated", Toast.LENGTH_LONG).show();
                 AlertDialogPro.Builder alertDialog = new AlertDialogPro.Builder(this);
                 alertDialog.setIcon(R.drawable.ic_launcher);
-                alertDialog.setTitle("Main Details");
+                alertDialog.setTitle(getString(R.string.main_ad));
                 alertDialog.setMessage(getString(R.string.updated));
                 alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 

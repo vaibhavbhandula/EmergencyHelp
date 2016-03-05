@@ -14,17 +14,17 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
-    EditText name, add, phone, emName1, emNumber1, emNumber2, emName2;
+    EditText name, address, phone, emName1, emNumber1, emNumber2, emName2;
     Spinner blood;
     Button save, cancel;
-    DatabaseHelper dh;
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         name = (EditText) findViewById(R.id.home_name_field);
-        add = (EditText) findViewById(R.id.home_address_field);
+        address = (EditText) findViewById(R.id.home_address_field);
         phone = (EditText) findViewById(R.id.home_phone_field);
         emName1 = (EditText) findViewById(R.id.Emergency_contacts_name);
         emNumber1 = (EditText) findViewById(R.id.Emergency_contacts_number1);
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         cancel = (Button) findViewById(R.id.cancel_button);
         save.setOnClickListener(this);
         cancel.setOnClickListener(this);
-        dh = new DatabaseHelper(this);
+        databaseHelper = new DatabaseHelper(this);
     }
 
     @Override
@@ -55,13 +55,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         if (v.getId() == R.id.save_button) {
             name.setTextColor(Color.BLACK);
-            add.setTextColor(Color.BLACK);
+            address.setTextColor(Color.BLACK);
             phone.setTextColor(Color.BLACK);
             emName1.setTextColor(Color.BLACK);
             emNumber1.setTextColor(Color.BLACK);
             emNumber2.setTextColor(Color.BLACK);
             emName2.setTextColor(Color.BLACK);
-            if (name.getText().toString().isEmpty() || add.getText().toString().isEmpty() || phone.getText().toString().isEmpty() || emName1.getText().toString().isEmpty() || emNumber1.getText().toString().isEmpty() || emNumber2.getText().toString().isEmpty() || emName2.getText().toString().isEmpty() || blood.getSelectedItemPosition() == 0) {
+            if (name.getText().toString().isEmpty() || address.getText().toString().isEmpty() || phone.getText().toString().isEmpty() || emName1.getText().toString().isEmpty() || emNumber1.getText().toString().isEmpty() || emNumber2.getText().toString().isEmpty() || emName2.getText().toString().isEmpty() || blood.getSelectedItemPosition() == 0) {
                 Toast.makeText(getBaseContext(), getString(R.string.fill), Toast.LENGTH_LONG).show();
             } else if (phone.getText().toString().length() < 10 || phone.getText().toString().length() > 10) {
                 Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
@@ -80,17 +80,17 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 int i = blood.getSelectedItemPosition();
                 String s = (String) blood.getItemAtPosition(i);
                 String nm = name.getText().toString();
-                String add = this.add.getText().toString();
+                String add = address.getText().toString();
                 String phn = phone.getText().toString();
                 String enm1 = emName1.getText().toString();
                 String eno1 = emNumber1.getText().toString();
                 String eno2 = emNumber2.getText().toString();
                 String enm2 = emName2.getText().toString();
 
-                dh.addDetails(new Details(nm, add, phn, s, enm1, eno1, enm2, eno2));
+                databaseHelper.addDetails(new Details(nm, add, phn, s, enm1, eno1, enm2, eno2));
                 Intent in = new Intent(this, Home.class);
                 /*Bundle b=new Bundle();
-				b.putString("name",nm);
+                b.putString("name",nm);
 				in.putExtras(b);*/
                 startActivity(in);
                 this.finish();

@@ -16,6 +16,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
+    Details details;
+
     final static String KEY_DB_NAME = "emerge";
     final static String KEY_TABLE_NAME = "help";
     final static String KEY_NAME = "name";
@@ -44,8 +46,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_ENAME_2 + " text,"
                 + KEY_ENO_2 + " long)");
 
-        db.close();
-
     }
 
     @Override
@@ -73,34 +73,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     Details getDetails() {
         db = this.getReadableDatabase();
-        Details d = new Details();
+        details = new Details();
         Cursor c = db.query(KEY_TABLE_NAME, new String[]{KEY_NAME, KEY_ADDRESS, KEY_PHN, KEY_BLOOD, KEY_ENAME_1, KEY_ENO_1, KEY_ENAME_2, KEY_ENO_2},
                 null, null, null, null, null);
         if (c != null) {
             c.moveToFirst();
         }
-        d = new Details();
-        d.setName(c.getString(0));
-        d.setAddress(c.getString(1));
-        d.setPhone(c.getString(2));
-        d.setBlood(c.getString(3));
-        d.setEname1(c.getString(4));
-        d.setEno1(c.getString(5));
-        d.setEname2(c.getString(6));
-        d.setEno2(c.getString(7));
+        details.setName(c.getString(0));
+        details.setAddress(c.getString(1));
+        details.setPhone(c.getString(2));
+        details.setBlood(c.getString(3));
+        details.setEname1(c.getString(4));
+        details.setEno1(c.getString(5));
+        details.setEname2(c.getString(6));
+        details.setEno2(c.getString(7));
 
-        db.close();
-        return d;
+        c.close();
+        return details;
 
     }
 
     int check() {
         db = this.getReadableDatabase();
         Cursor c = db.rawQuery("Select * from " + KEY_TABLE_NAME, null);
-        db.close();
-        if (c.moveToFirst())
+        if (c.moveToFirst()) {
+            c.close();
             return 1;
-        else return 0;
+        } else {
+            c.close();
+            return 0;
+        }
+
     }
 
     void editMain(String s1, String s2) {

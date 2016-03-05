@@ -40,7 +40,7 @@
             android:label="@string/title_activity_edit_main_details"
             android:parentActivityName=".Settings"/>
         <activity
-            android:name=".EmerContact"
+            android:name=".EmergencyContact"
             android:label="@string/title_activity_emer_contact"
             android:parentActivityName=".Home"/>
         <activity

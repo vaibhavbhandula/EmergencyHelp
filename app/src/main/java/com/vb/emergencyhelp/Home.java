@@ -28,8 +28,8 @@ import com.alertdialogpro.AlertDialogPro;
 
 
 public class Home extends AppCompatActivity implements OnClickListener, LocationListener {
-    DatabaseHelper dh;
-    Details d;
+    DatabaseHelper databaseHelper;
+    Details details;
     String provider = "";
     String locationString = "";
 
@@ -38,10 +38,10 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dh = new DatabaseHelper(this);
-        if (dh.check() == 0) {
+        databaseHelper = new DatabaseHelper(this);
+        if (databaseHelper.check() == 0) {
             startActivity(new Intent(Home.this, MainActivity.class));
-            if (dh.check() == 0) {
+            if (databaseHelper.check() == 0) {
                 this.finish();
             }
         }
@@ -172,59 +172,59 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
     @Override
     public void onClick(View v) {
-        d = new Details();
-        d = dh.getDetails();
+        details = new Details();
+        details = databaseHelper.getDetails();
 
 
         if (v.getId() == R.id.hospital) {
 //            Intent callIntent = new Intent(Intent.ACTION_CALL);
-//		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
+//		    callIntent.setData(Uri.parse("tel:" + details.getEno1()));
 //		    startActivity(callIntent);
-//            String msg1 = getString(R.string.hey) + " " + d.getEname1() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
+//            String msg1 = getString(R.string.hey) + " " + details.getEname1() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
 //            SmsManager smsManager = SmsManager.getDefault();
-//            smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-//            String msg2 = getString(R.string.hey) + " " + d.getEname2() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
-//            smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
+//            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
+//            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
+//            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
             String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_hospital));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
             //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
         } else if (v.getId() == R.id.police) {
 //			Intent callIntent = new Intent(Intent.ACTION_CALL);
-//		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
+//		    callIntent.setData(Uri.parse("tel:" + details.getEno1()));
 //		    startActivity(callIntent);
-//            String msg1 = getString(R.string.hey) + " " + d.getEname1() + " " + getString(R.string.trouble_police) + " " + locationString + "";
+//            String msg1 = getString(R.string.hey) + " " + details.getEname1() + " " + getString(R.string.trouble_police) + " " + locationString + "";
 //            SmsManager smsManager = SmsManager.getDefault();
-//            smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-//            String msg2 = getString(R.string.hey) + " " + d.getEname2() + " " + getString(R.string.trouble_police) + " " + locationString + "";
-//            smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
+//            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
+//            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_police) + " " + locationString + "";
+//            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
             String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_police));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
 
         } else if (v.getId() == R.id.fire) {
 //			Intent callIntent = new Intent(Intent.ACTION_CALL);
-//		    callIntent.setData(Uri.parse("tel:" + d.getEno1()));
+//		    callIntent.setData(Uri.parse("tel:" + details.getEno1()));
 //		    startActivity(callIntent);
-//            String msg1 = getString(R.string.hey) + " " + d.getEname1() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
+//            String msg1 = getString(R.string.hey) + " " + details.getEname1() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
 //            SmsManager smsManager = SmsManager.getDefault();
-//            smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-//            String msg2 = getString(R.string.hey) + " " + d.getEname2() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
-//            smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
+//            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
+//            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
+//            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
             String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_fire));
             Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
             startActivity(in);
         } else if (v.getId() == R.id.emergency) {
-            startActivity(new Intent(Home.this, EmerContact.class));
+            startActivity(new Intent(Home.this, EmergencyContact.class));
         } else if (v.getId() == R.id.sos) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:" + d.getEno1()));
+            callIntent.setData(Uri.parse("tel:" + details.getEno1()));
             startActivity(callIntent);
-            String msg1 = getString(R.string.hey) + " " + d.getEname1() + " " + getString(R.string.trouble) + " " + locationString + "";
+            String msg1 = getString(R.string.hey) + " " + details.getEname1() + " " + getString(R.string.trouble) + " " + locationString + "";
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(d.getEno1(), null, msg1, null, null);
-            String msg2 = getString(R.string.hey) + " " + d.getEname2() + " " + getString(R.string.trouble) + " " + locationString + "";
-            smsManager.sendTextMessage(d.getEno2(), null, msg2, null, null);
+            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
+            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble) + " " + locationString + "";
+            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
         } else if (v.getId() == R.id.settings) {
             startActivity(new Intent(Home.this, Settings.class));
 
