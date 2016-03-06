@@ -56,73 +56,73 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addDetails(Details d) {
+    void addDetails(Details details) {
         db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(KEY_NAME, d.getName());
-        cv.put(KEY_ADDRESS, d.getAddress());
-        cv.put(KEY_PHN, d.getPhone());
-        cv.put(KEY_BLOOD, d.getBlood());
-        cv.put(KEY_ENAME_1, d.getEname1());
-        cv.put(KEY_ENO_1, d.getEno1());
-        cv.put(KEY_ENAME_2, d.getEname2());
-        cv.put(KEY_ENO_2, d.getEno2());
-        db.insert(KEY_TABLE_NAME, null, cv);
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, details.getName());
+        values.put(KEY_ADDRESS, details.getAddress());
+        values.put(KEY_PHN, details.getPhone());
+        values.put(KEY_BLOOD, details.getBlood());
+        values.put(KEY_ENAME_1, details.getEname1());
+        values.put(KEY_ENO_1, details.getEno1());
+        values.put(KEY_ENAME_2, details.getEname2());
+        values.put(KEY_ENO_2, details.getEno2());
+        db.insert(KEY_TABLE_NAME, null, values);
         db.close();
     }
 
     Details getDetails() {
         db = this.getReadableDatabase();
         details = new Details();
-        Cursor c = db.query(KEY_TABLE_NAME, new String[]{KEY_NAME, KEY_ADDRESS, KEY_PHN, KEY_BLOOD, KEY_ENAME_1, KEY_ENO_1, KEY_ENAME_2, KEY_ENO_2},
+        Cursor cursor = db.query(KEY_TABLE_NAME, new String[]{KEY_NAME, KEY_ADDRESS, KEY_PHN, KEY_BLOOD, KEY_ENAME_1, KEY_ENO_1, KEY_ENAME_2, KEY_ENO_2},
                 null, null, null, null, null);
-        if (c != null) {
-            c.moveToFirst();
+        if (cursor != null) {
+            cursor.moveToFirst();
         }
-        details.setName(c.getString(0));
-        details.setAddress(c.getString(1));
-        details.setPhone(c.getString(2));
-        details.setBlood(c.getString(3));
-        details.setEname1(c.getString(4));
-        details.setEno1(c.getString(5));
-        details.setEname2(c.getString(6));
-        details.setEno2(c.getString(7));
+        details.setName(cursor.getString(0));
+        details.setAddress(cursor.getString(1));
+        details.setPhone(cursor.getString(2));
+        details.setBlood(cursor.getString(3));
+        details.setEname1(cursor.getString(4));
+        details.setEno1(cursor.getString(5));
+        details.setEname2(cursor.getString(6));
+        details.setEno2(cursor.getString(7));
 
-        c.close();
+        cursor.close();
         return details;
 
     }
 
     int check() {
         db = this.getReadableDatabase();
-        Cursor c = db.rawQuery("Select * from " + KEY_TABLE_NAME, null);
-        if (c.moveToFirst()) {
-            c.close();
+        Cursor cursor = db.rawQuery("Select * from " + KEY_TABLE_NAME, null);
+        if (cursor.moveToFirst()) {
+            cursor.close();
             return 1;
         } else {
-            c.close();
+            cursor.close();
             return 0;
         }
 
     }
 
-    void editMain(String s1, String s2) {
+    void editMain(String address, String phone) {
         db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(KEY_ADDRESS, s1);
-        cv.put(KEY_PHN, s2);
-        db.update(KEY_TABLE_NAME, cv, null, null);
+        ContentValues values = new ContentValues();
+        values.put(KEY_ADDRESS, address);
+        values.put(KEY_PHN, phone);
+        db.update(KEY_TABLE_NAME, values, null, null);
         db.close();
     }
 
-    void editEmergency(String s1, String s2, String s3, String s4) {
+    void editEmergency(String eName1, String eNumber1, String eName2, String eNumber2) {
         db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(KEY_ENAME_1, s1);
-        cv.put(KEY_ENO_1, s2);
-        cv.put(KEY_ENAME_2, s3);
-        cv.put(KEY_ENO_2, s4);
-        db.update(KEY_TABLE_NAME, cv, null, null);
+        ContentValues values = new ContentValues();
+        values.put(KEY_ENAME_1, eName1);
+        values.put(KEY_ENO_1, eNumber1);
+        values.put(KEY_ENAME_2, eName2);
+        values.put(KEY_ENO_2, eNumber2);
+        db.update(KEY_TABLE_NAME, values, null, null);
         db.close();
     }
 }
