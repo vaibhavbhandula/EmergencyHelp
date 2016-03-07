@@ -1,10 +1,9 @@
 package com.vb.emergencyhelp;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.content.Intent;
 import android.graphics.Color;
-import android.view.Menu;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -38,12 +37,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         databaseHelper = new DatabaseHelper(this);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
     @Override
     public void onBackPressed() {
@@ -65,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 Toast.makeText(getBaseContext(), getString(R.string.fill), Toast.LENGTH_LONG).show();
             } else if (phone.getText().toString().length() < 10 || phone.getText().toString().length() > 10) {
                 Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
-
                 phone.setTextColor(Color.RED);
                 phone.requestFocus();
             } else if (emNumber1.getText().toString().length() < 10 || emNumber1.getText().toString().length() > 10) {

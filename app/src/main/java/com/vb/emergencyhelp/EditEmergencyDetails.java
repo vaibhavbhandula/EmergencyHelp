@@ -56,6 +56,16 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
         }
         if ((name1.getText().toString().isEmpty() || number1.getText().toString().isEmpty()) && (number2.getText().toString().isEmpty() || name2.getText().toString().isEmpty())) {
 
+            if (name1.getText().toString().isEmpty()) {
+                name1.requestFocus();
+            } else if (number1.getText().toString().isEmpty()) {
+                number1.requestFocus();
+            } else if (name2.getText().toString().isEmpty()) {
+                name2.requestFocus();
+            } else if (number2.getText().toString().isEmpty()) {
+                number2.requestFocus();
+            }
+
             Toast.makeText(getBaseContext(), getString(R.string.fill), Toast.LENGTH_LONG).show();
 
         } else if (!s2.isEmpty() && (number1.getText().toString().length() < 10 || number1.getText().toString().length() > 10)) {

@@ -55,7 +55,6 @@ public class EditMainDetails extends AppCompatActivity implements OnClickListene
             }
             if ((phone.getText().toString().length() < 10 || phone.getText().toString().length() > 10) && z != 2) {
                 Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
-
                 phone.setTextColor(Color.RED);
                 phone.requestFocus();
             } else {
