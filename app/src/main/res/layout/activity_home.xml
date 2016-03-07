@@ -43,7 +43,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/pad_2"
-                        android:text="@string/hospital" />
+                        android:text="@string/hospital"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 
@@ -79,7 +80,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/pad_2"
-                        android:text="@string/police" />
+                        android:text="@string/police"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 
@@ -121,7 +123,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/pad_2"
-                        android:text="@string/fire_station" />
+                        android:text="@string/fire_station"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 
@@ -157,7 +160,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/pad_2"
-                        android:text="@string/emergency" />
+                        android:text="@string/emergency"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 
@@ -199,7 +203,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/pad_2"
-                        android:text="@string/sos" />
+                        android:text="@string/sos"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 
@@ -235,7 +240,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/pad_2"
-                        android:text="@string/settings" />
+                        android:text="@string/settings"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 

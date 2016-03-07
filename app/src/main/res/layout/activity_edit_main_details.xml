@@ -24,10 +24,10 @@
 
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:id="@+id/home_phone_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:hint="@string/home_phone"
             android:inputType="phone"
             app:met_floatingLabel="highlight"
@@ -48,6 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
                 android:text="@string/but_update"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
                 fbutton:buttonColor="@color/colorAccent"
                 fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
@@ -63,7 +65,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/pad_20"
             android:text="@string/note_main"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 </LinearLayout>

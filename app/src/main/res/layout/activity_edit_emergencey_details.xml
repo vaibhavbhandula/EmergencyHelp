@@ -19,45 +19,43 @@
             android:hint="@string/hint_ct1"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
-            app:met_primaryColor="@color/colorAccent"/>
+            app:met_primaryColor="@color/colorAccent" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:layout_marginTop="@dimen/pad_10"
+            android:id="@+id/Emergency_contacts_number1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Emergency_contacts_number1"
+            android:layout_marginTop="@dimen/pad_10"
             android:hint="@string/emergency_number"
             android:inputType="phone"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
             app:met_maxCharacters="10"
-            app:met_primaryColor="@color/colorAccent"
-            />
+            app:met_primaryColor="@color/colorAccent" />
 
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/Emergency_contacts_name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_ct2"
             android:layout_marginTop="@dimen/pad_10"
+            android:hint="@string/hint_ct2"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
-            app:met_primaryColor="@color/colorAccent"/>
+            app:met_primaryColor="@color/colorAccent" />
 
 
         <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/Emergency_contacts_number2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Emergency_contacts_number2"
+            android:layout_marginTop="@dimen/pad_10"
             android:hint="@string/emergency_number"
             android:inputType="phone"
-            android:layout_marginTop="@dimen/pad_10"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelTextSize="@dimen/activity_horizontal_margin"
             app:met_maxCharacters="10"
-            app:met_primaryColor="@color/colorAccent"
-            />
+            app:met_primaryColor="@color/colorAccent" />
 
 
         <com.andexert.library.RippleView
@@ -74,6 +72,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
                 android:text="@string/but_update"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
                 fbutton:buttonColor="@color/colorAccent"
                 fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
@@ -88,7 +88,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/pad_10"
             android:text="@string/note"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 </LinearLayout>

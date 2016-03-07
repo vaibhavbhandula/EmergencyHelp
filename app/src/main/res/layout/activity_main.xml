@@ -56,7 +56,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="@string/blood_type" />
+                android:text="@string/blood_type"
+                android:textColor="@android:color/black" />
 
 
         </LinearLayout>
@@ -125,6 +126,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/save"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
                 fbutton:buttonColor="@color/colorAccent"
                 fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
@@ -143,6 +146,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
                 android:text="@string/cancel"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
                 fbutton:buttonColor="@color/colorAccent"
                 fbutton:cornerRadius="@dimen/pad_4"
                 fbutton:shadowColor="@color/fbutton_color_asbestos"
