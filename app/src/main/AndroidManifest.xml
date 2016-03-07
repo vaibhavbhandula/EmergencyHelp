@@ -33,7 +33,7 @@
         </activity>
         <activity
             android:name=".EditEmergencyDetails"
-            android:label="@string/title_activity_edit_emergencey_details"
+            android:label="@string/title_activity_edit_emergency_details"
             android:parentActivityName=".Settings"/>
         <activity
             android:name=".EditMainDetails"

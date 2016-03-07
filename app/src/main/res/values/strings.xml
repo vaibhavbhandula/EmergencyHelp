@@ -107,7 +107,7 @@
     <string name="main">Enter Details</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_edit_main_details">Edit Details</string>
-    <string name="title_activity_edit_emergencey_details">Edit Emergencey Details</string>
+    <string name="title_activity_edit_emergency_details">Edit Emergency Details</string>
     <string name="title_activity_sos">Sos</string>
     <string name="title_activity_emer_contact">Emergency Contact Numbers</string>
 

@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     Details details;
 
-    final static String KEY_DB_NAME = "emerge";
+    final static String KEY_DB_NAME = "emergency";
     final static String KEY_TABLE_NAME = "help";
     final static String KEY_NAME = "name";
     final static String KEY_ADDRESS = "address";

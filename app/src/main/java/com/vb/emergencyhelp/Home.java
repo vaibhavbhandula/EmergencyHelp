@@ -62,11 +62,11 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         settings.setOnClickListener(this);
 
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Location l = manager.getLastKnownLocation("network");
-        if (l != null) {
-            onLocationChanged(l);
+        Location location = manager.getLastKnownLocation("network");
+        if (location != null) {
+            onLocationChanged(location);
         }
-        locSett();
+        locationSetting();
     }
 
     @Override
@@ -75,7 +75,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
     }
 
 
-    public void locSett() {
+    public void locationSetting() {
         final WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
         TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
