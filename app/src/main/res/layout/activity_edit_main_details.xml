@@ -3,9 +3,9 @@
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_marginLeft="@dimen/pad_20"
-    android:layout_marginRight="@dimen/pad_20"
-    android:layout_marginTop="@dimen/pad_20"
+    android:paddingLeft="@dimen/pad_20"
+    android:paddingRight="@dimen/pad_20"
+    android:paddingTop="@dimen/pad_20"
     android:orientation="vertical">
 
 

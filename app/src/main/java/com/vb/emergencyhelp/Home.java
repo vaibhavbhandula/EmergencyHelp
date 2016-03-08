@@ -226,7 +226,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
             String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble) + " " + locationString + "";
             smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
         } else if (v.getId() == R.id.settings) {
-            startActivity(new Intent(Home.this, Settings.class));
+            startActivity(new Intent(Home.this, NewSettings.class));
 
         }
 

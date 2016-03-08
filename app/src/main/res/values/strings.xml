@@ -71,6 +71,9 @@
     <string name="emergency_details">Emergency Details</string>
     <string name="updated">Updated</string>
     <string name="main_ad">Main Details</string>
+    <string name="main_tab">Main</string>
+    <string name="emergency_tab">Emergency</string>
+
 
     <string name="hint_ct1">Emergency Contact Name 1</string>
     <string name="hint_ct2">Emergency Contact Name 2</string>
@@ -110,5 +113,7 @@
     <string name="title_activity_edit_emergency_details">Edit Emergency Details</string>
     <string name="title_activity_sos">Sos</string>
     <string name="title_activity_emergency_contact">Emergency Contact Numbers</string>
+    <string name="title_activity_new_settings">Edit Details</string>
+
 
 </resources>
