@@ -14,18 +14,15 @@ import android.widget.Toast;
 import com.alertdialogpro.AlertDialogPro;
 
 
-public class Emergency extends Fragment implements View.OnClickListener{
+public class EmergencyDetailsFragment extends Fragment implements View.OnClickListener {
 
     EditText name1, number1, number2, name2;
     Button ok;
     DatabaseHelper databaseHelper;
     Details details;
 
-    public static Emergency newInstance(){
-        Emergency fragment=new Emergency();
-        return fragment;
-    }
-    public Emergency() {
+
+    public EmergencyDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -39,7 +36,7 @@ public class Emergency extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView=inflater.inflate(R.layout.activity_edit_emergencey_details,container,false);
+        View rootView = inflater.inflate(R.layout.fragment_edit_emergencey_details, container, false);
 
         name1 = (EditText) rootView.findViewById(R.id.Emergency_contacts_name);
         number1 = (EditText) rootView.findViewById(R.id.Emergency_contacts_number1);
@@ -107,7 +104,7 @@ public class Emergency extends Fragment implements View.OnClickListener{
             }
             /*Toast.makeText(this, "Updated", Toast.LENGTH_LONG).show();
             this.finish();
-			startActivity(new Intent(EditEmergenceyDetails.this,Home.class));*/
+			startActivity(new Intent(EditEmergencyDetails.this,Home.class));*/
             AlertDialogPro.Builder alertDialog = new AlertDialogPro.Builder(getActivity());
             alertDialog.setIcon(R.drawable.ic_launcher);
             alertDialog.setTitle(getString(R.string.emergency_details));
@@ -121,7 +118,6 @@ public class Emergency extends Fragment implements View.OnClickListener{
             });
             alertDialog.show();
         }
-
 
     }
 

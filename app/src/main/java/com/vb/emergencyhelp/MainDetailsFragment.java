@@ -14,16 +14,17 @@ import android.widget.Toast;
 import com.alertdialogpro.AlertDialogPro;
 
 
-public class Main extends Fragment implements View.OnClickListener{
+public class MainDetailsFragment extends Fragment implements View.OnClickListener {
 
     EditText address, phone;
     Button ok;
     DatabaseHelper databaseHelper;
     Details details;
 
-    public Main(){
+    public MainDetailsFragment() {
 
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +35,19 @@ public class Main extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView=inflater.inflate(R.layout.activity_edit_main_details,container,false);
+        View rootView = inflater.inflate(R.layout.fragment_edit_main_details, container, false);
         address = (EditText) rootView.findViewById(R.id.home_address_field);
         phone = (EditText) rootView.findViewById(R.id.home_phone_field);
         ok = (Button) rootView.findViewById(R.id.update);
         ok.setOnClickListener(this);
         return rootView;
-     }
+    }
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     @Override
     public void onClick(View v) {

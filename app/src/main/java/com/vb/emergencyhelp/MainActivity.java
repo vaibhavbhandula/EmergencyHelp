@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
         if (v.getId() == R.id.cancel_button) {
             this.finish();
-
         }
 
     }
