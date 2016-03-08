@@ -16,9 +16,9 @@ public class Settings extends AppCompatActivity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        main = (TextView) findViewById(R.id.button1);
+        main = (TextView) findViewById(R.id.main);
         main.setOnClickListener(this);
-        emergency = (TextView) findViewById(R.id.button2);
+        emergency = (TextView) findViewById(R.id.emergency);
         emergency.setOnClickListener(this);
     }
 
@@ -30,10 +30,10 @@ public class Settings extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.button1) {
+        if (v.getId() == R.id.main) {
             startActivity(new Intent(Settings.this, EditMainDetails.class));
 
-        } else if (v.getId() == R.id.button2) {
+        } else if (v.getId() == R.id.emergency) {
             startActivity(new Intent(Settings.this, EditEmergencyDetails.class));
 
         }

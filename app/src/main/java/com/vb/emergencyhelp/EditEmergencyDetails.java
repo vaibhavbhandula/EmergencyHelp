@@ -98,7 +98,7 @@ public class EditEmergencyDetails extends AppCompatActivity implements OnClickLi
 			startActivity(new Intent(EditEmergenceyDetails.this,Home.class));*/
             AlertDialogPro.Builder alertDialog = new AlertDialogPro.Builder(this);
             alertDialog.setIcon(R.drawable.ic_launcher);
-            alertDialog.setTitle(getString(R.string.emer_details));
+            alertDialog.setTitle(getString(R.string.emergency_details));
             alertDialog.setMessage(getString(R.string.updated));
             alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 

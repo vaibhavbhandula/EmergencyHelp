@@ -68,14 +68,14 @@
     <string name="nearest_fire">/nearest+fire+station</string>
     <string name="fill">Please fill all the details</string>
     <string name="phn">Phone number should be of 10 digits</string>
-    <string name="emer_details">Emergency Details</string>
+    <string name="emergency_details">Emergency Details</string>
     <string name="updated">Updated</string>
     <string name="main_ad">Main Details</string>
 
     <string name="hint_ct1">Emergency Contact Name 1</string>
     <string name="hint_ct2">Emergency Contact Name 2</string>
-    <string name="note">Note : Leave blank if both contacts are not be changed. </string>
-    <string name="note_main">Note : Leave blank if not to be updated</string>
+    <string name="note">Note : Leave blank if both details are not be changed. </string>
+    <string name="note_main">Note : Leave blank if not to be updated.</string>
     <string name="hint_add">Enter Your Address</string>
     <string name="but_update">Update</string>
     <string name="women">Women Help Line</string>
@@ -84,7 +84,7 @@
     <string name="call_102">102</string>
     <string name="call_1091">1091</string>
     <string name="but_edit_main">Edit Main Details</string>
-    <string name="mac_chars">10</string>
+    <string name="max_chars">10</string>
     <string-array name="blood_array">
         <item>Blood Type</item>
         <item>A-</item>
@@ -109,6 +109,6 @@
     <string name="title_activity_edit_main_details">Edit Details</string>
     <string name="title_activity_edit_emergency_details">Edit Emergency Details</string>
     <string name="title_activity_sos">Sos</string>
-    <string name="title_activity_emer_contact">Emergency Contact Numbers</string>
+    <string name="title_activity_emergency_contact">Emergency Contact Numbers</string>
 
 </resources>
