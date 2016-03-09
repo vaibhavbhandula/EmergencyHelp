@@ -36,7 +36,7 @@ public class EmergencyDetailsFragment extends Fragment implements View.OnClickLi
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_edit_emergencey_details, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_edit_emergency_details, container, false);
 
         name1 = (EditText) rootView.findViewById(R.id.Emergency_contacts_name);
         number1 = (EditText) rootView.findViewById(R.id.Emergency_contacts_number1);

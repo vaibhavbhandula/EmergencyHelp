@@ -22,7 +22,7 @@ public class MainDetailsFragment extends Fragment implements View.OnClickListene
     Details details;
 
     public MainDetailsFragment() {
-
+        // Required empty public constructor
     }
 
     @Override
