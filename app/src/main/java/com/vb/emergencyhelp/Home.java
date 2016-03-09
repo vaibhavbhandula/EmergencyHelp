@@ -75,15 +75,23 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        locationSetting();
+    }
+
+
     public void locationSetting() {
         final WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
         TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (telephonyManager.getDataState() == 0 && wifiManager.isWifiEnabled() == false && manager.isProviderEnabled(LocationManager.GPS_PROVIDER) == false) {
+        if (telephonyManager.getDataState() == 0 && !wifiManager.isWifiEnabled() && !manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             AlertDialogPro.Builder ad = new AlertDialogPro.Builder(this);
             ad.setIcon(R.drawable.ic_launcher);
             ad.setTitle(getString(R.string.first_resp));
             ad.setMessage(getString(R.string.ad_msg));
+            ad.setCancelable(false);
             ad.setPositiveButton("Network", new DialogInterface.OnClickListener() {
 
                 @Override
@@ -92,6 +100,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
                     network.setIcon(R.drawable.ic_launcher);
                     network.setTitle("Network");
                     network.setMessage(getString(R.string.network_msg));
+                    network.setCancelable(false);
                     network.setPositiveButton("Wi-Fi", new DialogInterface.OnClickListener() {
 
                         @Override
@@ -156,6 +165,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         }
 
     }
+
 
     private void setMobileDataEnabled(Context context, boolean enabled) throws ClassNotFoundException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         final ConnectivityManager conman = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
