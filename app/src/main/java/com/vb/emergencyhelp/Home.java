@@ -35,6 +35,12 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
     CardView hospital, police, fire, emergency, sos, settings;
 
+
+    //TODO images fix
+    //TODO icons fix
+    //TODO Alert Dialog fix
+    //TODO Everything else seems fine. Do Final Testing
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
