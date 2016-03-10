@@ -195,9 +195,9 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_hospital));
-            Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
-            startActivity(in);
+            String uri = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_hospital));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(intent);
             //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
         } else if (v.getId() == R.id.police) {
 //			Intent callIntent = new Intent(Intent.ACTION_CALL);
@@ -208,9 +208,9 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_police) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_police));
-            Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
-            startActivity(in);
+            String uri = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_police));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(intent);
 
         } else if (v.getId() == R.id.fire) {
 //			Intent callIntent = new Intent(Intent.ACTION_CALL);
@@ -221,9 +221,9 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            String s1 = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_fire));
-            Intent in = new Intent(Intent.ACTION_VIEW, Uri.parse(s1));
-            startActivity(in);
+            String uri = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_fire));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(intent);
         } else if (v.getId() == R.id.emergency) {
             startActivity(new Intent(Home.this, EmergencyContact.class));
         } else if (v.getId() == R.id.sos) {
