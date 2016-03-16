@@ -75,17 +75,17 @@ public class EmergencyDetailsFragment extends Fragment implements View.OnClickLi
                 number2.requestFocus();
             }
 
-            Toast.makeText(getActivity(), getString(R.string.fill), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), getString(R.string.fill), Toast.LENGTH_SHORT).show();
 
         } else if (!s2.isEmpty() && (number1.getText().toString().length() < 10 || number1.getText().toString().length() > 10)) {
 
-            Toast.makeText(getActivity(), getString(R.string.phn), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), getString(R.string.phn), Toast.LENGTH_SHORT).show();
 
             number1.setTextColor(Color.RED);
             number1.requestFocus();
 
         } else if (!s4.isEmpty() && (number2.getText().toString().length() < 10 || number2.getText().toString().length() > 10)) {
-            Toast.makeText(getActivity(), getString(R.string.phn), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), getString(R.string.phn), Toast.LENGTH_SHORT).show();
 
             number2.setTextColor(Color.RED);
             number2.requestFocus();

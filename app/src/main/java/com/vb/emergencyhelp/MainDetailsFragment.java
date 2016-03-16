@@ -56,7 +56,7 @@ public class MainDetailsFragment extends Fragment implements View.OnClickListene
         String s2 = phone.getText().toString();
         int z = 0;
         if (address.getText().toString().isEmpty() && phone.getText().toString().isEmpty()) {
-            Toast.makeText(getActivity(), getString(R.string.fill), Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), getString(R.string.fill), Toast.LENGTH_SHORT).show();
             address.requestFocus();
         } else {
             if (s1.isEmpty()) {
@@ -65,7 +65,7 @@ public class MainDetailsFragment extends Fragment implements View.OnClickListene
                 z = 2;
             }
             if ((phone.getText().toString().length() < 10 || phone.getText().toString().length() > 10) && z != 2) {
-                Toast.makeText(getActivity(), getString(R.string.phn), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), getString(R.string.phn), Toast.LENGTH_SHORT).show();
                 phone.setTextColor(Color.RED);
                 phone.requestFocus();
             } else {

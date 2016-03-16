@@ -55,17 +55,17 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             emNumber2.setTextColor(Color.BLACK);
             emName2.setTextColor(Color.BLACK);
             if (name.getText().toString().isEmpty() || address.getText().toString().isEmpty() || phone.getText().toString().isEmpty() || emName1.getText().toString().isEmpty() || emNumber1.getText().toString().isEmpty() || emNumber2.getText().toString().isEmpty() || emName2.getText().toString().isEmpty() || blood.getSelectedItemPosition() == 0) {
-                Toast.makeText(getBaseContext(), getString(R.string.fill), Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), getString(R.string.fill), Toast.LENGTH_SHORT).show();
             } else if (phone.getText().toString().length() < 10 || phone.getText().toString().length() > 10) {
-                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_SHORT).show();
                 phone.setTextColor(Color.RED);
                 phone.requestFocus();
             } else if (emNumber1.getText().toString().length() < 10 || emNumber1.getText().toString().length() > 10) {
-                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_SHORT).show();
                 emNumber1.setTextColor(Color.RED);
                 emNumber1.requestFocus();
             } else if (emNumber2.getText().toString().length() < 10 || emNumber2.getText().toString().length() > 10) {
-                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.phn), Toast.LENGTH_SHORT).show();
                 emNumber2.setTextColor(Color.RED);
                 emNumber2.requestFocus();
             } else {
