@@ -22,20 +22,20 @@
             android:textColor="@android:color/black" />
 
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/police"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="@string/call_100"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:textColor="@android:color/white"
-                fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="@dimen/pad_4"
-                fbutton:shadowColor="@color/fbutton_color_asbestos"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="@dimen/pad_4" />
+        <info.hoang8f.widget.FButton
+            android:id="@+id/police"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/fbutton_default_padding_top"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:text="@string/call_100"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/colorAccent"
+            fbutton:cornerRadius="@dimen/pad_4"
+            fbutton:shadowColor="@color/fbutton_color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="@dimen/pad_4" />
 
 
     </RelativeLayout>
@@ -56,19 +56,19 @@
             android:textColor="@android:color/black" />
 
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/fire"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="@string/call_101"
-                android:textColor="@android:color/white"
-                fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="@dimen/pad_4"
-                fbutton:shadowColor="@color/fbutton_color_asbestos"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="@dimen/pad_4" />
+        <info.hoang8f.widget.FButton
+            android:id="@+id/fire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/fbutton_default_padding_top"
+            android:text="@string/call_101"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/colorAccent"
+            fbutton:cornerRadius="@dimen/pad_4"
+            fbutton:shadowColor="@color/fbutton_color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="@dimen/pad_4" />
 
     </RelativeLayout>
 
@@ -88,19 +88,19 @@
             android:textColor="@android:color/black" />
 
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/ambulance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="@string/call_102"
-                android:textColor="@android:color/white"
-                fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="@dimen/pad_4"
-                fbutton:shadowColor="@color/fbutton_color_asbestos"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="@dimen/pad_4" />
+        <info.hoang8f.widget.FButton
+            android:id="@+id/ambulance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/fbutton_default_padding_top"
+            android:text="@string/call_102"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/colorAccent"
+            fbutton:cornerRadius="@dimen/pad_4"
+            fbutton:shadowColor="@color/fbutton_color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="@dimen/pad_4" />
 
 
     </RelativeLayout>
@@ -122,19 +122,19 @@
             android:textColor="@android:color/black" />
 
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/women"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="@string/call_1091"
-                android:textColor="@android:color/white"
-                fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="@dimen/pad_4"
-                fbutton:shadowColor="@color/fbutton_color_asbestos"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="@dimen/pad_4" />
+        <info.hoang8f.widget.FButton
+            android:id="@+id/women"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/fbutton_default_padding_top"
+            android:text="@string/call_1091"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/colorAccent"
+            fbutton:cornerRadius="@dimen/pad_4"
+            fbutton:shadowColor="@color/fbutton_color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="@dimen/pad_4" />
 
     </RelativeLayout>
 </LinearLayout>

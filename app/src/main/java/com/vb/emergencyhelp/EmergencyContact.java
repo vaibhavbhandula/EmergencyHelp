@@ -12,7 +12,7 @@ import android.widget.Button;
 
 public class EmergencyContact extends AppCompatActivity implements View.OnClickListener {
     Button police, fire, ambulance, women;
-    String phone_number="";
+    String phone_number = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,29 +37,29 @@ public class EmergencyContact extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.police) {
-            phone_number=getString(R.string.call_100);
-            if(PermissionChecks.checkCallPermission(this)){
+            phone_number = getString(R.string.call_100);
+            if (PermissionChecks.checkCallPermission(this)) {
                 tryToCall();
             }
         } else if (v.getId() == R.id.fire) {
-            phone_number=getString(R.string.call_101);
-            if(PermissionChecks.checkCallPermission(this)){
+            phone_number = getString(R.string.call_101);
+            if (PermissionChecks.checkCallPermission(this)) {
                 tryToCall();
             }
         } else if (v.getId() == R.id.ambulance) {
-            phone_number=getString(R.string.call_102);
-            if(PermissionChecks.checkCallPermission(this)){
+            phone_number = getString(R.string.call_102);
+            if (PermissionChecks.checkCallPermission(this)) {
                 tryToCall();
             }
         } else if (v.getId() == R.id.women) {
-            phone_number=getString(R.string.call_1091);
-            if(PermissionChecks.checkCallPermission(this)){
+            phone_number = getString(R.string.call_1091);
+            if (PermissionChecks.checkCallPermission(this)) {
                 tryToCall();
             }
         }
     }
 
-    public void tryToCall(){
+    public void tryToCall() {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + phone_number));
         startActivity(callIntent);
@@ -67,7 +67,7 @@ public class EmergencyContact extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case PermissionChecks.RC_PERM_CALL_PHONE:
                 if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     tryToCall();

@@ -81,7 +81,7 @@
     <string name="permission_storage_rationale">Emergency Help needs permission to access Storage for data.</string>
     <string name="permission_camera_rationale">Emergency Help needs permission to access your phone’s Camera.</string>
     <string name="permission_account_rationale">Emergency Help needs permission to access this feature.</string>
-    <string name="permission_sms_rationale">Emergency Help need sms permission to send SMS.</string>
+    <string name="permission_sms_rationale">Emergency Help need SMS permission to send SMS.</string>
 
     <string name="permission_dialog_positive">RETRY</string>
     <string name="permission_dialog_negative">I’M SURE</string>

@@ -18,7 +18,6 @@ import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Toast;
 
 import com.alertdialogpro.AlertDialogPro;
 
@@ -35,7 +34,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
     String locationString = "";
     String nearest = "";
 
-    boolean buttonCalled=false;
+    boolean buttonCalled = false;
 
     CardView hospital, police, fire, emergency, sos, settings;
 
@@ -86,19 +85,20 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
     @Override
     protected void onResume() {
         super.onResume();
-        buttonCalled=false;
+        locationSetting();
+        buttonCalled = false;
     }
 
 
-    public void updateLocation(){
-        if(PermissionChecks.checkLocationPermission(this)) {
+    public void updateLocation() {
+        if (PermissionChecks.checkLocationPermission(this)) {
             LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             Location location = manager.getLastKnownLocation("network");
             if (location != null) {
                 onLocationChanged(location);
             }
         }
-        if(buttonCalled)
+        if (buttonCalled)
             openMaps();
     }
 
@@ -210,9 +210,9 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            buttonCalled=true;
-            nearest=getString(R.string.nearest_hospital);
-            if(PermissionChecks.checkLocationPermission(this)) {
+            buttonCalled = true;
+            nearest = getString(R.string.nearest_hospital);
+            if (PermissionChecks.checkLocationPermission(this)) {
                 openMaps();
             }
             //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
@@ -225,9 +225,9 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_police) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            buttonCalled=true;
-            nearest=getString(R.string.nearest_police);
-            if(PermissionChecks.checkLocationPermission(this)) {
+            buttonCalled = true;
+            nearest = getString(R.string.nearest_police);
+            if (PermissionChecks.checkLocationPermission(this)) {
                 openMaps();
             }
         } else if (v.getId() == R.id.fire) {
@@ -239,16 +239,16 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            buttonCalled=true;
-            nearest=getString(R.string.nearest_fire);
-            if(PermissionChecks.checkLocationPermission(this)) {
+            buttonCalled = true;
+            nearest = getString(R.string.nearest_fire);
+            if (PermissionChecks.checkLocationPermission(this)) {
                 openMaps();
             }
         } else if (v.getId() == R.id.emergency) {
             startActivity(new Intent(Home.this, EmergencyContact.class));
         } else if (v.getId() == R.id.sos) {
-            if(PermissionChecks.checkLocationPermission(this)) {
-                if (PermissionChecks.checkCallPermission(this) && PermissionChecks.checkSMSPermission(this)){
+            if (PermissionChecks.checkLocationPermission(this)) {
+                if (PermissionChecks.checkCallPermission(this) && PermissionChecks.checkSMSPermission(this)) {
                     callAndSMS();
                 }
             }
@@ -259,14 +259,14 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
     }
 
-    public void openMaps(){
+    public void openMaps() {
         String uri = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + nearest);
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         startActivity(intent);
     }
 
 
-    public void callAndSMS(){
+    public void callAndSMS() {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + details.getEno1()));
         startActivity(callIntent);
@@ -276,9 +276,10 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble) + " " + locationString + "";
         smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
+        switch (requestCode) {
             case PermissionChecks.RC_PERM_ACCESS_FINE_LOCATION:
                 if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     updateLocation();
@@ -290,7 +291,7 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
                 break;
             case PermissionChecks.RC_PERM_CALL_PHONE:
                 if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if(PermissionChecks.checkSMSPermission(this))
+                    if (PermissionChecks.checkSMSPermission(this))
                         callAndSMS();
                 } else {
                     if (permissions.length > 0) {

@@ -115,46 +115,36 @@
             app:met_maxCharacters="10"
             app:met_primaryColor="@color/colorAccent" />
 
-        <com.andexert.library.RippleView
-            android:layout_width="wrap_content"
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/pad_10">
+            android:layout_marginTop="@dimen/pad_10"
+            android:text="@string/save"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/colorAccent"
+            fbutton:cornerRadius="@dimen/pad_4"
+            fbutton:shadowColor="@color/fbutton_color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="@dimen/pad_4" />
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/save_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/save"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="@dimen/pad_4"
-                fbutton:shadowColor="@color/fbutton_color_asbestos"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="@dimen/pad_4" />
-        </com.andexert.library.RippleView>
 
-        <com.andexert.library.RippleView
-            android:layout_width="wrap_content"
+        <info.hoang8f.widget.FButton
+            android:id="@+id/cancel_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_marginTop="@dimen/fbutton_default_padding_top"
+            android:text="@string/cancel"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/colorAccent"
+            fbutton:cornerRadius="@dimen/pad_4"
+            fbutton:shadowColor="@color/fbutton_color_asbestos"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="@dimen/pad_4" />
 
-            <info.hoang8f.widget.FButton
-                android:id="@+id/cancel_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/fbutton_default_padding_top"
-                android:text="@string/cancel"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                fbutton:buttonColor="@color/colorAccent"
-                fbutton:cornerRadius="@dimen/pad_4"
-                fbutton:shadowColor="@color/fbutton_color_asbestos"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="@dimen/pad_4" />
-
-        </com.andexert.library.RippleView>
     </LinearLayout>
 
 

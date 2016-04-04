@@ -42,16 +42,17 @@ public class PermissionChecks {
     /**
      * Check for ANDROID M
      */
-    private static boolean checkForAndroidM(){
+    private static boolean checkForAndroidM() {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M;
     }
 
     /**
      * Check if we have the GET_ACCOUNTS permission and request it if we do not.
+     *
      * @return true if we have the permission, false if we do not.
      */
     public static boolean checkAccountsPermission(final Activity mActivity) {
-        if(checkForAndroidM())
+        if (checkForAndroidM())
             return true;
 
         final String perm = Manifest.permission.GET_ACCOUNTS;
@@ -80,7 +81,7 @@ public class PermissionChecks {
                                         RC_PERM_GET_ACCOUNTS);
                             }
                         }).show();
-            }catch (Throwable t){
+            } catch (Throwable t) {
 
             }
             return false;
@@ -92,12 +93,14 @@ public class PermissionChecks {
             return false;
         }
     }
+
     /**
      * Check if we have the ACCESS_FINE_LOCATION permission and request it if we do not.
+     *
      * @return true if we have the permission, false if we do not.
      */
     public static boolean checkLocationPermission(final Activity mActivity) {
-        if(checkForAndroidM())
+        if (checkForAndroidM())
             return true;
 
         final String perm = Manifest.permission.ACCESS_FINE_LOCATION;
@@ -125,7 +128,7 @@ public class PermissionChecks {
                                         RC_PERM_ACCESS_FINE_LOCATION);
                             }
                         }).show();
-            }catch (Throwable t){
+            } catch (Throwable t) {
 
             }
             return false;
@@ -140,10 +143,11 @@ public class PermissionChecks {
 
     /**
      * Check if we have the READ_EXTERNAL_STORAGE & WRITE_EXTERNAL_STORAGE permission and request it if we do not.
+     *
      * @return true if we have the permission, false if we do not.
      */
     public static boolean checkStoragePermissions(final Activity mActivity) {
-        if(checkForAndroidM())
+        if (checkForAndroidM())
             return true;
 
         final String perm = Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -173,7 +177,7 @@ public class PermissionChecks {
                                         RC_PERM_STORAGE);
                             }
                         }).show();
-            }catch (Throwable t){
+            } catch (Throwable t) {
 
             }
             return false;
@@ -188,10 +192,11 @@ public class PermissionChecks {
 
     /**
      * Check if we have the CAMERA permission and request it if we do not.
+     *
      * @return true if we have the permission, false if we do not.
      */
     public static boolean checkCameraPermission(final Activity mActivity) {
-        if(checkForAndroidM())
+        if (checkForAndroidM())
             return true;
 
         final String perm = Manifest.permission.CAMERA;
@@ -219,7 +224,7 @@ public class PermissionChecks {
                                         RC_PERM_CAMERA);
                             }
                         }).show();
-            }catch (Throwable t){
+            } catch (Throwable t) {
 
             }
             return false;
@@ -234,10 +239,11 @@ public class PermissionChecks {
 
     /**
      * Check if we have the CALL_PHONE permission and request it if we do not.
+     *
      * @return true if we have the permission, false if we do not.
      */
     public static boolean checkCallPermission(final Activity mActivity) {
-        if(checkForAndroidM())
+        if (checkForAndroidM())
             return true;
 
         final String perm = Manifest.permission.CALL_PHONE;
@@ -265,7 +271,7 @@ public class PermissionChecks {
                                         RC_PERM_CALL_PHONE);
                             }
                         }).show();
-            }catch (Throwable t){
+            } catch (Throwable t) {
 
             }
             return false;
@@ -275,7 +281,7 @@ public class PermissionChecks {
                 ActivityCompat.requestPermissions(mActivity,
                         new String[]{perm},
                         RC_PERM_CALL_PHONE);
-            }catch (Throwable t){
+            } catch (Throwable t) {
 
             }
             return false;
@@ -284,6 +290,7 @@ public class PermissionChecks {
 
     /**
      * Check if we have the SEND_SMS permission and request it if we do not.
+     *
      * @return true if we have the permission, false if we do not.
      */
     public static boolean checkSMSPermission(final Activity mActivity) {
@@ -293,8 +300,7 @@ public class PermissionChecks {
             // We have the permission
             return true;
 
-        }
-        else if (ActivityCompat.shouldShowRequestPermissionRationale(mActivity, perm)) {
+        } else if (ActivityCompat.shouldShowRequestPermissionRationale(mActivity, perm)) {
             // Need to show permission rationale, display a snackbar and then request
             // the permission again when the snackbar is dismissed.
 
@@ -318,7 +324,7 @@ public class PermissionChecks {
 
             }
             return false;
-        }else {
+        } else {
             // No explanation needed, we can request the permission.
             ActivityCompat.requestPermissions(mActivity,
                     new String[]{perm},
@@ -402,7 +408,7 @@ public class PermissionChecks {
                 title = context.getString(R.string.permission_contacts_title);
                 break;
             case Manifest.permission.SEND_SMS:
-                title=context.getString(R.string.permission_sms_title);
+                title = context.getString(R.string.permission_sms_title);
                 break;
         }
         return title;
@@ -427,7 +433,7 @@ public class PermissionChecks {
                 title = context.getString(R.string.permission_contacts_message, context.getString(R.string.app_name));
                 break;
             case Manifest.permission.SEND_SMS:
-                title=context.getString(R.string.permission_sms_message, context.getString((R.string.app_name)));
+                title = context.getString(R.string.permission_sms_message, context.getString((R.string.app_name)));
                 break;
         }
         return title;
