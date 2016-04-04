@@ -1,23 +1,18 @@
 package com.vb.emergencyhelp;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Locale;
-
-
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
@@ -26,12 +21,20 @@ import android.view.View.OnClickListener;
 
 import com.alertdialogpro.AlertDialogPro;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Locale;
+
 
 public class Home extends AppCompatActivity implements OnClickListener, LocationListener {
     DatabaseHelper databaseHelper;
     Details details;
     String provider = "";
     String locationString = "";
+    String nearest = "";
+
+    boolean buttonCalled=false;
 
     CardView hospital, police, fire, emergency, sos, settings;
 
@@ -67,24 +70,35 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         settings = (CardView) findViewById(R.id.settings);
         settings.setOnClickListener(this);
 
-        LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Location location = manager.getLastKnownLocation("network");
-        if (location != null) {
-            onLocationChanged(location);
-        }
+        updateLocation();
+
         locationSetting();
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        locationSetting();
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        locationSetting();
+        buttonCalled=false;
+    }
+
+
+    public void updateLocation(){
+        if(PermissionChecks.checkLocationPermission(this)) {
+            LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            Location location = manager.getLastKnownLocation("network");
+            if (location != null) {
+                onLocationChanged(location);
+            }
+        }
+        if(buttonCalled)
+            openMaps();
     }
 
 
@@ -164,12 +178,6 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         } else if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             provider = "gps";
         }
-        Location location = manager.getLastKnownLocation(provider);
-        if (location != null) {
-            onLocationChanged(location);
-
-        }
-
     }
 
 
@@ -201,9 +209,11 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_hospital) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            String uri = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_hospital));
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-            startActivity(intent);
+            buttonCalled=true;
+            nearest=getString(R.string.nearest_hospital);
+            if(PermissionChecks.checkLocationPermission(this)) {
+                openMaps();
+            }
             //Toast.makeText(this, s, Toast.LENGTH_LONG).show();
         } else if (v.getId() == R.id.police) {
 //			Intent callIntent = new Intent(Intent.ACTION_CALL);
@@ -214,10 +224,11 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_police) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            String uri = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_police));
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-            startActivity(intent);
-
+            buttonCalled=true;
+            nearest=getString(R.string.nearest_police);
+            if(PermissionChecks.checkLocationPermission(this)) {
+                openMaps();
+            }
         } else if (v.getId() == R.id.fire) {
 //			Intent callIntent = new Intent(Intent.ACTION_CALL);
 //		    callIntent.setData(Uri.parse("tel:" + details.getEno1()));
@@ -227,9 +238,11 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 //            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
 //            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble_fire) + " " + locationString + "";
 //            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
-            String uri = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + getString(R.string.nearest_fire));
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-            startActivity(intent);
+            buttonCalled=true;
+            nearest=getString(R.string.nearest_fire);
+            if(PermissionChecks.checkLocationPermission(this)) {
+                openMaps();
+            }
         } else if (v.getId() == R.id.emergency) {
             startActivity(new Intent(Home.this, EmergencyContact.class));
         } else if (v.getId() == R.id.sos) {
@@ -246,6 +259,28 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
         }
 
+    }
+
+    public void openMaps(){
+        String uri = String.format(Locale.ENGLISH, getString(R.string.url) + locationString + nearest);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case PermissionChecks.RC_PERM_ACCESS_FINE_LOCATION:
+                if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    updateLocation();
+                } else {
+                    if (permissions.length > 0) {
+                        PermissionChecks.showRationale(this, permissions[0], PermissionChecks.RC_PERM_ACCESS_FINE_LOCATION, null);
+                    }
+                }
+                break;
+        }
     }
 
     @Override

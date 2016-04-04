@@ -74,6 +74,35 @@
     <string name="main_tab">Main</string>
     <string name="emergency_tab">Emergency</string>
 
+    <!--Permission Strings-->
+
+    <string name="permission_location_rationale">Emergency Help needs location permission to access this feature.</string>
+    <string name="permission_phone_rationale">Emergency Help needs call permission to make calls.</string>
+    <string name="permission_storage_rationale">Emergency Help needs permission to access Storage for data.</string>
+    <string name="permission_camera_rationale">Emergency Help needs permission to access your phone’s Camera.</string>
+    <string name="permission_account_rationale">Emergency Help needs permission to access this feature.</string>
+    <string name="permission_sms_rationale">Emergency Help need sms permission to send SMS.</string>
+
+    <string name="permission_dialog_positive">RETRY</string>
+    <string name="permission_dialog_negative">I’M SURE</string>
+
+    <string name="permission_dialog_neveragain_message">It looks like you have turned off permissions required for this feature. It can be enabled under Phone Settings > Apps > Emergency Help > Permissions</string>
+    <string name="permission_dialog_gotosettings">GO TO SETTINGS</string>
+
+    <string name="permission_location_message">Emergency Help uses this permission to detect your current location. It also enables you to get turn-by-turn driving directions. Are you sure you want to deny this permission?</string>
+    <string name="permission_contacts_message">This permission enables you to create an account on Emergency Help using a Google account, or use an existing connection to log in. Are you sure you want to deny this permission?</string>
+    <string name="permission_phone_message">Emergency Help uses this permission to call directly without you having to leave the app. Are you sure you want to deny this permission?</string>
+    <string name="permission_camera_message">Emergency Help requires this permission to enable the in-app camera. Are you sure you want to deny this permission?</string>
+    <string name="permission_storage_message">Emergency Help uses this permission to allow you to upload photos from your Gallery. Are you sure you want to deny this permission?</string>
+    <string name="permission_sms_message">Emergency Help uses this permission to send SMS without you having to leave the app. Are you sure you want to deny this permission?</string>
+
+    <string name="permission_location_title">Location Permission Denied</string>
+    <string name="permission_camera_title">Camera Access Denied</string>
+    <string name="permission_storage_title">Storage Access Denied</string>
+    <string name="permission_phone_title">Phone Access Denied</string>
+    <string name="permission_contacts_title">Contacts Permission Denied</string>
+    <string name="permission_sms_title">SMS Permission Denied</string>
+
 
     <string name="hint_ct1">Emergency Contact Name 1</string>
     <string name="hint_ct2">Emergency Contact Name 2</string>
