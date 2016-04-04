@@ -18,6 +18,7 @@ import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 import com.alertdialogpro.AlertDialogPro;
 
@@ -246,14 +247,11 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         } else if (v.getId() == R.id.emergency) {
             startActivity(new Intent(Home.this, EmergencyContact.class));
         } else if (v.getId() == R.id.sos) {
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:" + details.getEno1()));
-            startActivity(callIntent);
-            String msg1 = getString(R.string.hey) + " " + details.getEname1() + " " + getString(R.string.trouble) + " " + locationString + "";
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
-            String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble) + " " + locationString + "";
-            smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
+            if(PermissionChecks.checkLocationPermission(this)) {
+                if (PermissionChecks.checkCallPermission(this) && PermissionChecks.checkSMSPermission(this)){
+                    callAndSMS();
+                }
+            }
         } else if (v.getId() == R.id.settings) {
             startActivity(new Intent(Home.this, Settings.class));
 
@@ -268,6 +266,16 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
     }
 
 
+    public void callAndSMS(){
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:" + details.getEno1()));
+        startActivity(callIntent);
+        String msg1 = getString(R.string.hey) + " " + details.getEname1() + " " + getString(R.string.trouble) + " " + locationString + "";
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
+        String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble) + " " + locationString + "";
+        smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
+    }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
@@ -277,6 +285,25 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
                 } else {
                     if (permissions.length > 0) {
                         PermissionChecks.showRationale(this, permissions[0], PermissionChecks.RC_PERM_ACCESS_FINE_LOCATION, null);
+                    }
+                }
+                break;
+            case PermissionChecks.RC_PERM_CALL_PHONE:
+                if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if(PermissionChecks.checkSMSPermission(this))
+                        callAndSMS();
+                } else {
+                    if (permissions.length > 0) {
+                        PermissionChecks.showRationale(this, permissions[0], PermissionChecks.RC_PERM_CALL_PHONE, null);
+                    }
+                }
+                break;
+            case PermissionChecks.RC_PERM_SEND_SMS:
+                if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    callAndSMS();
+                } else {
+                    if (permissions.length > 0) {
+                        PermissionChecks.showRationale(this, permissions[0], PermissionChecks.RC_PERM_SEND_SMS, null);
                     }
                 }
                 break;

@@ -21,8 +21,8 @@ import com.alertdialogpro.AlertDialogPro;
  */
 public class PermissionChecks {
 
-    /* RequestCode for resolutions to get RECEIVE_SMS permission on M */
-    public static final int RC_PERM_RECEIVE_SMS = 1;
+    /* RequestCode for resolutions to get SEND_SMS permission on M */
+    public static final int RC_PERM_SEND_SMS = 1;
 
     /* RequestCode for resolutions to get GET_ACCOUNTS permission on M */
     public static final int RC_PERM_GET_ACCOUNTS = 2;
@@ -283,21 +283,46 @@ public class PermissionChecks {
     }
 
     /**
-     * Check if we have the RECEIVE_SMS permission and request it if we do not.
+     * Check if we have the SEND_SMS permission and request it if we do not.
      * @return true if we have the permission, false if we do not.
      */
     public static boolean checkSMSPermission(final Activity mActivity) {
-        final String perm = Manifest.permission.RECEIVE_SMS;
+        final String perm = Manifest.permission.SEND_SMS;
         int permissionCheck = ContextCompat.checkSelfPermission(mActivity, perm);
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
             // We have the permission
             return true;
 
-        } else {
+        }
+        else if (ActivityCompat.shouldShowRequestPermissionRationale(mActivity, perm)) {
+            // Need to show permission rationale, display a snackbar and then request
+            // the permission again when the snackbar is dismissed.
+
+            final ViewGroup mLayout = (ViewGroup) ((ViewGroup) mActivity
+                    .findViewById(android.R.id.content)).getChildAt(0);
+
+            try {
+                Snackbar.make(mLayout,
+                        mActivity.getString(R.string.permission_sms_rationale, mActivity.getString(R.string.app_name)),
+                        Snackbar.LENGTH_INDEFINITE)
+                        .setAction(android.R.string.ok, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                // Request the permission again.
+                                ActivityCompat.requestPermissions(mActivity,
+                                        new String[]{perm},
+                                        RC_PERM_SEND_SMS);
+                            }
+                        }).show();
+            } catch (Throwable t) {
+
+            }
+            return false;
+        }else {
             // No explanation needed, we can request the permission.
             ActivityCompat.requestPermissions(mActivity,
                     new String[]{perm},
-                    RC_PERM_RECEIVE_SMS);
+                    RC_PERM_SEND_SMS);
             return false;
         }
     }
@@ -376,6 +401,9 @@ public class PermissionChecks {
             case Manifest.permission.GET_ACCOUNTS:
                 title = context.getString(R.string.permission_contacts_title);
                 break;
+            case Manifest.permission.SEND_SMS:
+                title=context.getString(R.string.permission_sms_title);
+                break;
         }
         return title;
     }
@@ -397,6 +425,9 @@ public class PermissionChecks {
                 break;
             case Manifest.permission.GET_ACCOUNTS:
                 title = context.getString(R.string.permission_contacts_message, context.getString(R.string.app_name));
+                break;
+            case Manifest.permission.SEND_SMS:
+                title=context.getString(R.string.permission_sms_message, context.getString((R.string.app_name)));
                 break;
         }
         return title;
