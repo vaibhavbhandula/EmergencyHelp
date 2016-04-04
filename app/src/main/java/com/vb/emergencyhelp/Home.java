@@ -71,8 +71,6 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         settings.setOnClickListener(this);
 
         updateLocation();
-
-        locationSetting();
     }
 
     @Override
