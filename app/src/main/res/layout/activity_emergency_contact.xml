@@ -21,10 +21,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/black" />
 
-        <com.andexert.library.RippleView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/police"
@@ -33,6 +29,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/fbutton_default_padding_top"
                 android:text="@string/call_100"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:textColor="@android:color/white"
                 fbutton:buttonColor="@color/colorAccent"
                 fbutton:cornerRadius="@dimen/pad_4"
@@ -40,7 +37,6 @@
                 fbutton:shadowEnabled="true"
                 fbutton:shadowHeight="@dimen/pad_4" />
 
-        </com.andexert.library.RippleView>
 
     </RelativeLayout>
 
@@ -59,10 +55,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/black" />
 
-        <com.andexert.library.RippleView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/fire"
@@ -78,7 +70,6 @@
                 fbutton:shadowEnabled="true"
                 fbutton:shadowHeight="@dimen/pad_4" />
 
-        </com.andexert.library.RippleView>
     </RelativeLayout>
 
     <RelativeLayout
@@ -96,10 +87,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/black" />
 
-        <com.andexert.library.RippleView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/ambulance"
@@ -115,7 +102,6 @@
                 fbutton:shadowEnabled="true"
                 fbutton:shadowHeight="@dimen/pad_4" />
 
-        </com.andexert.library.RippleView>
 
     </RelativeLayout>
 
@@ -135,10 +121,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/black" />
 
-        <com.andexert.library.RippleView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/women"
@@ -154,6 +136,5 @@
                 fbutton:shadowEnabled="true"
                 fbutton:shadowHeight="@dimen/pad_4" />
 
-        </com.andexert.library.RippleView>
     </RelativeLayout>
 </LinearLayout>
