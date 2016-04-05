@@ -3,6 +3,7 @@ package com.vb.emergencyhelp;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -30,17 +31,22 @@ import java.util.Locale;
 public class Home extends AppCompatActivity implements OnClickListener, LocationListener {
     DatabaseHelper databaseHelper;
     Details details;
-    String provider = "";
+    String provider = "network";
     String locationString = "";
     String nearest = "";
+    String filename = "MyPrefs";
 
+    final static String KEY_PROVIDER = "provider";
     boolean buttonCalled = false;
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     CardView hospital, police, fire, emergency, sos, settings;
 
 
     //TODO images fix
     //TODO icons fix
+    //TODO See if gps location can be fixed
     //TODO Alert Dialog fix
     //TODO Everything else seems fine. Do Final Testing
 
@@ -70,13 +76,14 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         settings = (CardView) findViewById(R.id.settings);
         settings.setOnClickListener(this);
 
+        sharedPreferences = getSharedPreferences(filename, Context.MODE_PRIVATE);
+
         updateLocation();
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        locationSetting();
     }
 
 
@@ -91,7 +98,8 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
     public void updateLocation() {
         if (PermissionChecks.checkLocationPermission(this)) {
             LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            Location location = manager.getLastKnownLocation("network");
+            manager.requestLocationUpdates(sharedPreferences.getString(KEY_PROVIDER, "network"), 0, 0, this);
+            Location location = manager.getLastKnownLocation(sharedPreferences.getString(KEY_PROVIDER, "network"));
             if (location != null) {
                 onLocationChanged(location);
             }
@@ -162,9 +170,9 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    provider = "gps";
                     Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                     startActivity(intent);
-                    provider = "gps";
                 }
             });
             ad.show();
@@ -177,6 +185,9 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
         } else if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             provider = "gps";
         }
+        editor = sharedPreferences.edit();
+        editor.putString(KEY_PROVIDER, provider);
+        editor.commit();
     }
 
 
@@ -265,14 +276,19 @@ public class Home extends AppCompatActivity implements OnClickListener, Location
 
 
     public void callAndSMS() {
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:" + details.getEno1()));
-        startActivity(callIntent);
-        String msg1 = getString(R.string.hey) + " " + details.getEname1() + " " + getString(R.string.trouble) + " " + locationString + "";
+        if (PermissionChecks.checkCallPermission(this) && PermissionChecks.checkSMSPermission(this)) {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:" + details.getEno1()));
+            startActivity(callIntent);
+            sendSMS(details.getEname1(), details.getEno1());
+            sendSMS(details.getEname2(), details.getEno2());
+        }
+    }
+
+    public void sendSMS(String name, String number) {
         SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(details.getEno1(), null, msg1, null, null);
-        String msg2 = getString(R.string.hey) + " " + details.getEname2() + " " + getString(R.string.trouble) + " " + locationString + "";
-        smsManager.sendTextMessage(details.getEno2(), null, msg2, null, null);
+        String msg = getString(R.string.hey) + " " + name + ", " + getString(R.string.trouble) + "- " + locationString + "";
+        smsManager.sendTextMessage(number, null, msg, null, null);
     }
 
     @Override

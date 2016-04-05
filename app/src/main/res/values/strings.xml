@@ -58,7 +58,7 @@
     <string name="ad_msg">Your network and gps providers are off. Please enable one of them.</string>
     <string name="network_msg">Please choose between Wi-Fi and Mobile Data</string>
     <string name="hey">Hey</string>
-    <string name="trouble">I\'m in trouble. Please come here! location </string>
+    <string name="trouble">I\'m in trouble. Please come here! Location</string>
     <string name="trouble_hospital">I\'m in trouble. Please come to Hospital near location</string>
     <string name="trouble_police">I\'m in trouble. Please come to Police Station near location</string>
     <string name="trouble_fire">I\'m in trouble. It\'s Fire! Please come here! location</string>

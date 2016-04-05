@@ -60,9 +60,11 @@ public class EmergencyContact extends AppCompatActivity implements View.OnClickL
     }
 
     public void tryToCall() {
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:" + phone_number));
-        startActivity(callIntent);
+        if (PermissionChecks.checkCallPermission(this)) {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:" + phone_number));
+            startActivity(callIntent);
+        }
     }
 
     @Override
